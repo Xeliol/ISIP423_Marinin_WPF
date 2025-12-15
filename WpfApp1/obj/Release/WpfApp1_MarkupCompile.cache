@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Release\
 WpfApp1
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\App.xaml
 61119681920
 
@@ -16,5 +16,5 @@ C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\App.xaml
 13-1310406943
 MainWindow.xaml;Pages\Choices.xaml;Pages\ColorOptions.xaml;Pages\Credit.xaml;Pages\ModelEngine.xaml;Pages\Results.xaml;
 
-False
+True
 

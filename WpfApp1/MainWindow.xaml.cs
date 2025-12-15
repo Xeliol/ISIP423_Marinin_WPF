@@ -23,6 +23,32 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            var car = new Car();
+            NavigationData.CurrentData = car;
+        }
+    }
+
+    public class Car
+    {
+        public string Model;
+        public string Color;
+        public string Engine;
+        public List<string> More;
+
+        public float Percent;
+        public int Months;
+        public int TotalPrice;
+
+        public string Name;
+        public string Phone;
+        public string Email;
+    }
+
+    public static class NavigationData
+    {
+        public static object CurrentData
+        {
+            get; set;
         }
     }
 }
