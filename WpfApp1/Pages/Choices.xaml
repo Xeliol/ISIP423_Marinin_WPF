@@ -9,6 +9,23 @@
       Title="Choices">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="1"  Background="AliceBlue">
+            <TextBlock TextAlignment="Center" Text="Общая стоимость:" FontSize="20" FontWeight="Bold"/>
+            <TextBlock x:Name="TotalPrice" TextAlignment="Center" Text="" FontSize="20" FontWeight="Bold"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBlock x:Name="ModelText" HorizontalAlignment="Center" Text="Модель: " Margin="5"/>
+            <TextBlock x:Name="EngineText" HorizontalAlignment="Center" Text="Двигатель: " Margin="5"/>
+            <TextBlock x:Name="ColorText" HorizontalAlignment="Center" Text="Цвет: " Margin="5"/>
+            <TextBlock x:Name="MoreText" HorizontalAlignment="Center" Text="Доп. опции:" Margin="5"/>
+        </StackPanel>
     </Grid>
 </Page>

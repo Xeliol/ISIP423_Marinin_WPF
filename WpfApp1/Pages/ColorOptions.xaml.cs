@@ -92,6 +92,8 @@ namespace WpfApp1.Pages
             var car = NavigationData.CurrentData as Car;
             car.Color = ColorComboBox.Text;
             car.More = moreNames;
+            car.TotalPrice += ((Colors)ColorComboBox.SelectedItem).Price + moreSum;
+
 
             NavigationData.CurrentData = car;
             NavigationService.Navigate(new Choices());

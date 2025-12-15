@@ -8,7 +8,6 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ColorOptions">
     <Grid>
-        
         <StackPanel>
             <TextBlock HorizontalAlignment="Center" Text="Выберите цвет:" Margin="5"/>
             <ComboBox x:Name="ColorComboBox" Width="100" SelectionChanged="ColorComboBox_SelectionChanged"/>
@@ -21,6 +20,6 @@
             <TextBlock x:Name="MoreCost" HorizontalAlignment="Center" Text="Стоимость: 187000" Margin="5" FontWeight="Bold"/>
             <Button x:Name="NextButton" HorizontalAlignment="Center" Content="Далее" Click="NextButton_Click" Margin="5"/>
             <TextBlock x:Name="TotalCost" HorizontalAlignment="Center" Text="Общая Стоимость: 187000" Margin="5" FontWeight="Bold"/>
-            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

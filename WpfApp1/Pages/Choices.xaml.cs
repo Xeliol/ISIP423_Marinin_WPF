@@ -23,6 +23,15 @@ namespace WpfApp1.Pages
         public Choices()
         {
             InitializeComponent();
+            var _data = NavigationData.CurrentData as Car;
+            TotalPrice.Text = Convert.ToString(_data.TotalPrice);
+            ModelText.Text += _data.Model;
+            EngineText.Text += _data.Engine;
+            ColorText.Text += _data.Color;
+            foreach(var i in _data.More)
+            {
+                MoreText.Text += "\n" + "- " + i;
+            }
         }
     }
 }
