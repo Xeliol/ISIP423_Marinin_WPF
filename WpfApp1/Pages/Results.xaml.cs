@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace WpfApp1.Pages
 {
@@ -35,24 +36,7 @@ namespace WpfApp1.Pages
             cra.Email = Email.Text;
             NavigationData.CurrentData = cra;
 
-            string writeText = "";
-            var _data = NavigationData.CurrentData as Car;
-            writeText = "Всего: " + Convert.ToString(_data.TotalPrice) + " Руб\n";
-            writeText += _data.Model.name + " " + _data.Model.Price + " Руб\n";
-            writeText += _data.Engine.name + " " + _data.Engine.Price + " Руб\n";
-            writeText += _data.Color.name + " " + _data.Color.Price + " Руб\n";
-            
-            foreach (var i in _data.More)
-            {
-                writeText += "- " + i.name + " " + i.Price + " Руб\n";
-            }
-
-            writeText += _data.Name + "\n";
-            writeText += _data.Email + "\n";
-            writeText += _data.Phone + "\n";
-            File.WriteAllText("save.txt", writeText);
-
-            Application.Current.Shutdown();
+            NavigationService.Navigate(new Final());
         }
 
         public void CheckTextBoxes()
@@ -96,6 +80,12 @@ namespace WpfApp1.Pages
         private void Email_TextChanged(object sender, TextChangedEventArgs e)
         {
             CheckTextBoxes();
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

@@ -18,7 +18,7 @@
             <TextBox x:Name="Email" Margin="5" Width="100" TextChanged="Phone_TextChanged"></TextBox>
 
             <TextBlock Margin="5" TextAlignment="Center" Text="Телефон"/>
-            <TextBox x:Name="Phone" Margin="5" Width="100" TextChanged="Email_TextChanged"></TextBox>
+            <TextBox x:Name="Phone" Margin="5" Width="100" TextChanged="Email_TextChanged"  PreviewTextInput="NumberValidationTextBox"></TextBox>
 
             <Button x:Name="Next" Margin="5" Width="100" Height="20" Click="Button_Click">Подтвердить</Button>
         </StackPanel>
