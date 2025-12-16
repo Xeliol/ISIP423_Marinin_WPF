@@ -9,5 +9,10 @@
     <Grid>
         <Frame x:Name="MainFrame" Grid.Row="1" Source="Pages/ModelEngine.xaml" NavigationUIVisibility="Hidden"/>
         <Button x:Name="BackButton" Margin="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="25" Click="BackButton_Click">Назад</Button>
+        <StackPanel x:Name="popup" Visibility="Hidden" Width="400" Height="100" Background="LightGray">
+            <TextBlock x:Name="popupText" Margin="5" Text="Вы потеряете введеные данные. Уверены что хотите вернуться?" TextAlignment="Center"/>
+            <Button x:Name="yesButton" Width="50" Height="20" Margin="5" Click="yesButton_Click">Да</Button>
+            <Button x:Name="noButton" Width="50" Height="20" Margin="5" Click="noButton_Click">Нет</Button>
+        </StackPanel>
     </Grid>
 </Window>

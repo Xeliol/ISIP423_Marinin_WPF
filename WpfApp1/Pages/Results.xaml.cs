@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,27 @@ namespace WpfApp1.Pages
         public Results()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var cra = NavigationData.CurrentData as Car;
+            cra.Name = name.Text;
+            cra.Phone = Phone.Text;
+            cra.Email = Email.Text;
+            NavigationData.CurrentData = cra;
+
+            string writeText = "";
+            var _data = NavigationData.CurrentData as Car;
+            writeText = Convert.ToString(_data.TotalPrice) + "\n";
+            writeText += _data.Model.name + " " + _data.Model.Price + " Руб\n";
+            writeText += _data.Engine.name + " " + _data.Engine.Price + " Руб\n";
+            writeText += _data.Color.name + " " + _data.Color.Price + " Руб\n";
+            foreach (var i in _data.More)
+            {
+                writeText += "\n" + "- " + i.name + " " + i.Price + " Руб\n";
+            }
+            File.WriteAllText("save.txt", writeText);
         }
     }
 }

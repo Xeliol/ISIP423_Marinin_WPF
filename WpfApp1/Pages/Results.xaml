@@ -9,6 +9,18 @@
       Title="Results">
 
     <Grid>
-        
+        <StackPanel>
+            <TextBlock Margin="5" TextAlignment="Center" Text="Отправка Заявки" FontSize="20" FontWeight="Bold"/>
+            <TextBlock Margin="5" TextAlignment="Center" Text="ФИО"/>
+            <TextBox x:Name="name" Margin="5" Width="100"></TextBox>
+            
+            <TextBlock Margin="5" TextAlignment="Center" Text="Почта"/>
+            <TextBox x:Name="Phone" Margin="5" Width="100"></TextBox>
+
+            <TextBlock Margin="5" TextAlignment="Center" Text="Телефон"/>
+            <TextBox x:Name="Email" Margin="5" Width="100"></TextBox>
+
+            <Button Margin="5" Width="100" Height="20" IsEnabled="False" Click="Button_Click">Подтвердить</Button>
+        </StackPanel>
     </Grid>
 </Page>

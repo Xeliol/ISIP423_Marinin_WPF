@@ -12,11 +12,13 @@
         <StackPanel>
             <TextBlock Margin="5" TextAlignment="Center" Text="Расчёт Кредита" FontSize="20" FontWeight="Bold"/>
             <TextBlock Margin="5" TextAlignment="Center" Text="Процент первоначального взноса"/>
-            <TextBox x:Name="Percent" Margin="5" Width="100" TextChanged="Percent_TextChanged">20</TextBox>
+            <TextBox x:Name="Percent" Margin="5" Width="100" TextChanged="Percent_TextChanged"></TextBox>
             <TextBlock Margin="5" TextAlignment="Center" Text="Срок Кредита (12-36 мес.)"/>
             <TextBox x:Name="months" Margin="5" Width="100" TextChanged="months_TextChanged">12</TextBox>
-
-            <Button Margin="5" Width="100" Height="20">Подтвердить</Button>
+            <Button Margin="5" Width="100" Height="20" Click="Button_Click">Подтвердить</Button>
+            <TextBlock x:Name="vznos" Margin="5" TextAlignment="Center" Text="Первоначальный взнос: "/>
+            <TextBlock x:Name="Summa" Margin="5" TextAlignment="Center" Text="Сумма в кредит: "/>
+            <TextBlock x:Name="monthly" Margin="5" TextAlignment="Center" Text="Ежемесячный платеж: "/>
         </StackPanel>
     </Grid>
 </Page>

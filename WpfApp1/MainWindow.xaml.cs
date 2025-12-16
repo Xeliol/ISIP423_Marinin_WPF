@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Pages;
 
 namespace WpfApp1
 {
@@ -45,7 +46,23 @@ namespace WpfApp1
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            if(MainFrame.NavigationService.CanGoBack) MainFrame.NavigationService.GoBack();
+            Page currentPage = MainFrame.Content as Page;
+            if (MainFrame.NavigationService.CanGoBack && !(currentPage is Results)) MainFrame.NavigationService.GoBack();
+            if(currentPage is Results)
+            {
+                popup.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void yesButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.NavigationService.CanGoBack) MainFrame.NavigationService.GoBack();
+            popup.Visibility = Visibility.Hidden;
+        }
+
+        private void noButton_Click(object sender, RoutedEventArgs e)
+        {
+            popup.Visibility = Visibility.Hidden;
         }
     }
 
