@@ -8,5 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Frame x:Name="MainFrame" Grid.Row="1" Source="Pages/ModelEngine.xaml" NavigationUIVisibility="Hidden"/>
+        <Button x:Name="BackButton" Margin="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="25" Click="BackButton_Click">Назад</Button>
     </Grid>
 </Window>

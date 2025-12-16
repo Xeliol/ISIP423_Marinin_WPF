@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,37 +25,54 @@ namespace WpfApp1.Pages
         public ModelEngine()
         {
             InitializeComponent();
-            List<Engine> engines = new List<Engine>()
+
+            var cra = NavigationData.CurrentData as Car;
+            cra.Model = new Option
             {
-                new Engine
+                name = "Default",
+                Price = 0
+            };
+            cra.Engine = new Option
+            {
+                name = "Default",
+                Price = 0
+            };
+            NavigationData.CurrentData = cra;
+
+            RecountTotal();
+
+
+            List<Option> engines = new List<Option>()
+            {
+                new Option
                 {
                     Price = 187000,
                     name = "Good"
                 },
-                new Engine
+                new Option
                 {
                     name = "Mid",
                     Price = 113000
                 },
-                new Engine
+                new Option
                 {
                     name = "Bad",
                     Price = 90000
                 }
             };
-            List<Model> models = new List<Model>()
+            List<Option> models = new List<Option>()
             {
-                new Model
+                new Option
                 {
                     Price = 2000000,
                     name = "Kia Rio"
                 },
-                new Model
+                new Option
                 {
                     name = "Toyota Kamara",
                     Price = 2300000
                 },
-                new Model
+                new Option
                 {
                     name = "Honda Civic",
                     Price = 1800000
@@ -70,24 +88,12 @@ namespace WpfApp1.Pages
             EngineComboBox.SelectedIndex = 0;
         }
 
-        class Engine
-        {
-            public int Price { get; set; }
-            public string name { get; set; }
-        }
-
-        class Model
-        {
-            public int Price { get; set; }
-            public string name { get; set; }
-        }
-
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
             var car = NavigationData.CurrentData as Car;
-            car.Model = ModelComboBox.Text;
-            car.Engine = EngineComboBox.Text;
-            car.TotalPrice = ((Model)ModelComboBox.SelectedItem).Price + ((Engine)EngineComboBox.SelectedItem).Price;
+            car.Model = (Option)ModelComboBox.SelectedItem;
+            car.Engine = (Option)EngineComboBox.SelectedItem;
+            //car.TotalPrice = ((Option)ModelComboBox.SelectedItem).Price + ((Option)EngineComboBox.SelectedItem).Price;
 
             NavigationData.CurrentData = car;
 
@@ -96,14 +102,28 @@ namespace WpfApp1.Pages
 
         private void ModelComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ModelCost.Text = "Стоимость: " + ((Model)ModelComboBox.SelectedItem).Price;
-            if(EngineComboBox.SelectedIndex != -1) TotalCost.Text = "Общая Стоимость: " + (((Model)ModelComboBox.SelectedItem).Price + ((Engine)EngineComboBox.SelectedItem).Price);
+            ModelCost.Text = "Стоимость: " + ((Option)ModelComboBox.SelectedItem).Price;
+            if(EngineComboBox.SelectedIndex != -1) TotalCost.Text = "Общая Стоимость: " + (((Option)ModelComboBox.SelectedItem).Price + ((Option)EngineComboBox.SelectedItem).Price);
         }
 
         private void EngineComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            EngineCost.Text = "Стоимость: " + ((Engine)EngineComboBox.SelectedItem).Price;
-            TotalCost.Text = "Общая Стоимость: " + (((Model)ModelComboBox.SelectedItem).Price + ((Engine)EngineComboBox.SelectedItem).Price);
+            EngineCost.Text = "Стоимость: " + ((Option)EngineComboBox.SelectedItem).Price;
+            TotalCost.Text = "Общая Стоимость: " + (((Option)ModelComboBox.SelectedItem).Price + ((Option)EngineComboBox.SelectedItem).Price);
+        }
+
+        public void RecountTotal()
+        {
+            var cra = NavigationData.CurrentData as Car;
+            cra.TotalPrice = 0;
+            cra.TotalPrice += cra.Model.Price;
+            cra.TotalPrice += cra.Engine.Price;
+            cra.TotalPrice += cra.Color.Price;
+            foreach (var i in cra.More)
+            {
+                cra.TotalPrice += i.Price;
+            }
+            NavigationData.CurrentData = cra;
         }
     }
 }
