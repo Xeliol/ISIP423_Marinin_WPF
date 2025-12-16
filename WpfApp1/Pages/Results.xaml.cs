@@ -24,6 +24,7 @@ namespace WpfApp1.Pages
         public Results()
         {
             InitializeComponent();
+            Next.IsEnabled = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -36,15 +37,65 @@ namespace WpfApp1.Pages
 
             string writeText = "";
             var _data = NavigationData.CurrentData as Car;
-            writeText = Convert.ToString(_data.TotalPrice) + "\n";
+            writeText = "Всего: " + Convert.ToString(_data.TotalPrice) + " Руб\n";
             writeText += _data.Model.name + " " + _data.Model.Price + " Руб\n";
             writeText += _data.Engine.name + " " + _data.Engine.Price + " Руб\n";
             writeText += _data.Color.name + " " + _data.Color.Price + " Руб\n";
+            
             foreach (var i in _data.More)
             {
-                writeText += "\n" + "- " + i.name + " " + i.Price + " Руб\n";
+                writeText += "- " + i.name + " " + i.Price + " Руб\n";
             }
+
+            writeText += _data.Name + "\n";
+            writeText += _data.Email + "\n";
+            writeText += _data.Phone + "\n";
             File.WriteAllText("save.txt", writeText);
+
+            Application.Current.Shutdown();
+        }
+
+        public void CheckTextBoxes()
+        {
+            int PhoneNum;
+            bool PhoneGood = IsDigitsOnly(Phone.Text);
+            bool NameGood = true;
+            bool MailGood = true;
+
+            if (PhoneGood) PhoneGood = (Phone.Text.Length > 8) && (Phone.Text.Length > 0);
+
+            if (name.Text.Length > 5) NameGood = true;
+
+            if (Email.Text.Length > 5 && Email.Text.Contains("@")) MailGood = true;
+
+            if (PhoneGood && NameGood &&  MailGood) { Next.IsEnabled = true; }
+            else { Next.IsEnabled = false; }
+        }
+
+        bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
+        }
+
+        private void name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CheckTextBoxes();
+        }
+
+        private void Phone_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CheckTextBoxes();
+        }
+
+        private void Email_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CheckTextBoxes();
         }
     }
 }
