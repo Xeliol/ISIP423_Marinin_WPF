@@ -48,5 +48,10 @@ namespace WpfApp1.Pages
             }
             NavigationData.CurrentData = cra;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Credit());
+        }
     }
 }

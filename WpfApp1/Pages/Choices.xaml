@@ -21,6 +21,7 @@
             <TextBlock TextAlignment="Center" Text="Общая стоимость:" FontSize="20" FontWeight="Bold"/>
             <TextBlock x:Name="TotalPrice" TextAlignment="Center" Text="" FontSize="20" FontWeight="Bold"/>
         </StackPanel>
+        <Button Grid.Column="0" Grid.Row="1" Width="120" Height="25" Margin="25" VerticalAlignment="Bottom" Click="Button_Click">Оформить Кредит</Button>
         <StackPanel Grid.Column="1" Grid.Row="1">
             <TextBlock x:Name="ModelText" HorizontalAlignment="Center" Text="Модель: " Margin="5"/>
             <TextBlock x:Name="EngineText" HorizontalAlignment="Center" Text="Двигатель: " Margin="5"/>

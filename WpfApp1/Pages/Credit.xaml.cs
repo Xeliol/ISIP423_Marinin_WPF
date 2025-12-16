@@ -24,5 +24,27 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
+
+        private void Percent_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            float result;
+            bool isNumber = float.TryParse(Percent.Text, out result);
+            if (isNumber)
+            {
+                var cra = NavigationData.CurrentData as Car;
+                cra.Percent = result;
+            }
+        }
+
+        private void months_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int result;
+            bool isNumber = int.TryParse(months.Text, out result);
+            if (isNumber)
+            {
+                var cra = NavigationData.CurrentData as Car;
+                cra.Months = result;
+            }
+        }
     }
 }

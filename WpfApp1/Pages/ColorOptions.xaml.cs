@@ -167,7 +167,9 @@ namespace WpfApp1.Pages
             {
                 Summ += opt.Price;
             }
-            TotalCost.Text = "Общая Стоимость: " + (cra.TotalPrice + Summ + ((Option)ColorComboBox.SelectedItem).Price);
+            TotalCost.Text = "Общая Стоимость: " + (Summ + ((Option)ColorComboBox.SelectedItem).Price);
+
+            MoreCost.Text = "Стоимость: " + Summ;
         }
 
         public void RecountTotal()
