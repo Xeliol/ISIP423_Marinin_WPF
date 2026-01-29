@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace WpfApp1.Pages
+{
+    /// <summary>
+    /// Логика взаимодействия для Page3.xaml
+    /// </summary>
+    public partial class ConfirmPage : Page
+    {
+        public ConfirmPage()
+        {
+            InitializeComponent();
+           
+            double cost = 0;
+
+            var cart = NavigationData.CurrentData as List<Product>;
+            
+            foreach(var topp in cart)
+            {
+                infoText.Text += "\n-" + topp.Name + " (" + topp.Price + " rub)";
+                cost += topp.Price;
+            }
+            if (cart.Count == 0) { infoText.Text = "None"; }
+
+            priceText.Text += cost;
+        }
+
+        private void NextBut_Click(object sender, RoutedEventArgs e)
+        {
+            if(NameTextBox.Text == "" || AdressTextBox.Text == "" || EmailTextBox.Text == "") MessageBox.Show($"A field is empty.");
+            else MessageBox.Show($"Success! Yo thanks, {NameTextBox.Text}");
+        }
+    }
+}

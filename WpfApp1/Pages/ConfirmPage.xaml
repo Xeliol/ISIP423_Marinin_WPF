@@ -1,0 +1,27 @@
+﻿<Page x:Class="WpfApp1.Pages.ConfirmPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page3">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Top">
+            <TextBlock FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="20">Your Order:</TextBlock>
+            <TextBlock x:Name="infoText" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
+            <TextBlock x:Name="priceText" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="20" Text="Price: "/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Bottom" Margin="0 0 0 20">
+            <TextBlock HorizontalAlignment="Center" TextAlignment="Center">ФИО Клиента:</TextBlock>
+            <TextBox x:Name="NameTextBox" Width="200"></TextBox>
+            <TextBlock HorizontalAlignment="Center" TextAlignment="Center">Почта Клиента:</TextBlock>
+            <TextBox x:Name="EmailTextBox" Width="200"></TextBox>
+            <TextBlock HorizontalAlignment="Center" TextAlignment="Center">Адрес Доставки:</TextBlock>
+            <TextBox x:Name="AdressTextBox" Width="200"></TextBox>
+        </StackPanel>
+        <Button x:Name="NextBut" Height="50" Width="100" Margin="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="NextBut_Click">Order</Button>
+    </Grid>
+</Page>
