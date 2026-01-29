@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
@@ -27,27 +28,18 @@ namespace WpfApp1.Pages
             InitializeComponent();
             cart = NavigationData.CurrentData as List<Product>;
 
-            List<Product> Products = new List<Product>()
+            List<Products> product = Core.Context.Products.ToList();
+
+            List<Product> Products = new List<Product>();
+            foreach(var pr in product)
             {
-                new Product
+                Products.Add(new Product
                 {
-                    Price = 1000,
-                    Name = "Wine",
-                    ImgPath = "/Images/Wine.jpg"
-                },
-                new Product
-                {
-                    Price = 120,
-                    Name = "Kvas",
-                    ImgPath = "/Images/Kvas.jpg"
-                },
-                new Product
-                {
-                    Price = 360,
-                    Name = "Cheeseburger",
-                    ImgPath = "/Images/Burger.jpg"
-                },
-            };
+                    Price = pr.Price,
+                    Name = pr.Name,
+                    ImgPath = pr.ImgPath
+                });
+            }
 
             UserListBox.ItemsSource = Products;
         }
