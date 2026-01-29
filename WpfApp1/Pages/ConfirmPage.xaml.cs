@@ -40,8 +40,34 @@ namespace WpfApp1.Pages
 
         private void NextBut_Click(object sender, RoutedEventArgs e)
         {
-            if(NameTextBox.Text == "" || AdressTextBox.Text == "" || EmailTextBox.Text == "") MessageBox.Show($"A field is empty.");
-            else MessageBox.Show($"Success! Yo thanks, {NameTextBox.Text}");
+            if (NameTextBox.Text == "" || AdressTextBox.Text == "" || EmailTextBox.Text == "") MessageBox.Show($"A field is empty.");
+            else
+            {
+                var cart = NavigationData.CurrentData as List<Product>;
+                Order new_order = new Order
+                {
+                    ClientName = NameTextBox.Text,
+                    Adress = AdressTextBox.Text,
+                    Email = EmailTextBox.Text
+                };
+                int ID = Core.Context.Order.ToList().Count() + 1;
+                Core.Context.Order.Add(new_order);
+
+                Core.Context.SaveChanges();
+
+                foreach(var prod in cart)
+                {
+                    ProductsInOrder new_prIor = new ProductsInOrder
+                    {
+                        ProductsID = prod.ID,
+                        OrderID = ID,
+                        ID = Core.Context.ProductsInOrder.ToList().Count() + 1
+                    };
+                    Core.Context.SaveChanges();
+                }
+
+                MessageBox.Show($"Success! Yo thanks, {NameTextBox.Text}");
+            }
         }
     }
 }

@@ -11,5 +11,6 @@ namespace WpfApp1
         public string Name { get; set; }
         public string ImgPath { get; set; }
         public double Price { get; set; }
+        public int ID { get; set; }
     }
 }

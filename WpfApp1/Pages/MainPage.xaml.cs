@@ -37,7 +37,8 @@ namespace WpfApp1.Pages
                 {
                     Price = pr.Price,
                     Name = pr.Name,
-                    ImgPath = pr.ImgPath
+                    ImgPath = pr.ImgPath,
+                    ID = pr.ID
                 });
             }
 
