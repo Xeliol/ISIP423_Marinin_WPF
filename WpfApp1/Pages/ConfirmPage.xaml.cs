@@ -50,19 +50,18 @@ namespace WpfApp1.Pages
                     Adress = AdressTextBox.Text,
                     Email = EmailTextBox.Text
                 };
-                int ID = Core.Context.Order.ToList().Count() + 1;
                 Core.Context.Order.Add(new_order);
-
                 Core.Context.SaveChanges();
+                int IDo = Core.Context.Order.ToList().Count();
 
-                foreach(var prod in cart)
+                foreach (var prod in cart)
                 {
                     ProductsInOrder new_prIor = new ProductsInOrder
                     {
                         ProductsID = prod.ID,
-                        OrderID = ID,
-                        ID = Core.Context.ProductsInOrder.ToList().Count() + 1
+                        OrderID = IDo
                     };
+                    Core.Context.ProductsInOrder.Add(new_prIor);
                     Core.Context.SaveChanges();
                 }
 
