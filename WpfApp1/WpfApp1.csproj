@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class.cs" />
     <Compile Include="Core.cs" />
     <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
@@ -157,6 +158,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Scream.jpg" />
+    <Resource Include="Images\Drive.jpg" />
+    <Resource Include="Images\Fnaf.jpg" />
+    <Resource Include="Images\Outlast.jpg" />
+    <Resource Include="Images\Ralph.jpeg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

@@ -12,11 +12,14 @@
         <ListBox x:Name="UserListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" Background="FloralWhite">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Height="200" Width="150">
+                    <StackPanel Height="240" Width="220">
                         <Image Height="120" Width="120" Source="{Binding PosterPath}"/>
                         <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Center"/>
                         <TextBlock Text="{Binding Genre, StringFormat=Genre: {0}}" HorizontalAlignment="Center"/>
-                        <Button Margin="5" Width="120" Height="20" Click="Button_Click">Buy a Ticket</Button>
+                        <TextBlock Text="{Binding Rating, StringFormat=Rating: {0}}" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Rating, StringFormat=Age Rating: {0}}" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding ReleaseDate, StringFormat={}{0:dd-MMM-yyyy}}" HorizontalAlignment="Center"/>
+                        <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="MediumPurple" Foreground="White">Buy a Ticket</Button>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -27,5 +30,12 @@
             </ListBox.ItemsPanel>
         </ListBox>
         <TextBlock FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White">Movies</TextBlock>
+        <StackPanel Margin="120 0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <ComboBox Margin="5" Width="100" Height="20" x:Name="SortBox" VerticalAlignment="Top" HorizontalAlignment="Left"></ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <TextBox Margin="5" Width="200" Height="20"></TextBox>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Width="100" Height="20" Click="Button_Click" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White">My Account</Button>
+        </StackPanel>
     </Grid>
 </Page>

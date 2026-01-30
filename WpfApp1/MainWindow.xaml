@@ -8,6 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Frame x:Name="MainFrame" Grid.Row="1" Source="Pages/MainPage.xaml" NavigationUIVisibility="Hidden"/>
-        <Button x:Name="BackButton" Margin="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="25" Click="BackButton_Click">Go Back</Button>
+        <Button x:Name="BackButton" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="20" Click="BackButton_Click" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White">Go Back</Button>
     </Grid>
 </Window>

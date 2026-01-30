@@ -27,6 +27,13 @@ namespace WpfApp1.Pages
             List<Movies> movies = Core.Context.Movies.ToList();
 
             UserListBox.ItemsSource = movies;
+
+            List<string> SortItems = new List<string>()
+            {
+                "Genre", "Age Rating", "Name", "Rating"
+            };
+
+            SortBox.ItemsSource = SortItems;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
