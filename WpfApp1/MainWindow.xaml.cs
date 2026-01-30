@@ -24,5 +24,19 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Page currentPage = MainFrame.Content as Page;
+            if (MainFrame.NavigationService.CanGoBack) MainFrame.NavigationService.GoBack();
+        }
+    }
+
+    public static class NavigationData
+    {
+        public static object CurrentData
+        {
+            get; set;
+        }
     }
 }
