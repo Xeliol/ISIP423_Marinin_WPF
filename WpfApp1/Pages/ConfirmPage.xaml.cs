@@ -66,6 +66,7 @@ namespace WpfApp1.Pages
                 }
 
                 MessageBox.Show($"Success! Yo thanks, {NameTextBox.Text}");
+                Application.Current.Shutdown();
             }
         }
     }
