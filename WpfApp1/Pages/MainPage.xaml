@@ -31,11 +31,11 @@
         </ListBox>
         <TextBlock FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White">Movies</TextBlock>
         <StackPanel Margin="120 0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <ComboBox Margin="5" Width="100" Height="20" x:Name="SortBox" VerticalAlignment="Top" HorizontalAlignment="Left"></ComboBox>
+            <ComboBox Margin="5" Width="100" Height="20" x:Name="SortBox" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="SortBox_SelectionChanged"></ComboBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
             <TextBox Margin="5" Width="200" Height="20"></TextBox>
-            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Width="100" Height="20" Click="Button_Click" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White">My Account</Button>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Width="100" Height="20" Click="AccountButton_Click" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White">My Account</Button>
         </StackPanel>
     </Grid>
 </Page>

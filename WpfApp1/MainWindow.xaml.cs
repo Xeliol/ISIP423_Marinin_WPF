@@ -23,6 +23,13 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+
+            NavigationData.CurrentData = new CurData { 
+                ID = -1,
+                Login = "Anon",
+                MovieID = -1
+            };
+
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

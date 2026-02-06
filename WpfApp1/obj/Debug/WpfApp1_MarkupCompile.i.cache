@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\App.xaml
-2-213997779
+5-467613919
 2-1957146511
-181818592071
+21-2032554513
 171820818900
-MainWindow.xaml;Pages\MainPage.xaml;
+MainWindow.xaml;Pages\LoginPage.xaml;Pages\MainPage.xaml;Pages\MoviePage.xaml;Pages\SignupPage.xaml;
 
 True
 
