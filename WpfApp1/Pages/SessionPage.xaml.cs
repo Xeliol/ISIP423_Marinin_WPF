@@ -77,8 +77,19 @@ namespace WpfApp1.Pages
 
                     var seat = dataItem as String;
 
-                    chosen_seats.Add(seat);
-                    sender = clickedButton;
+                    if (Core.Context.Tickets.Where(p => p.SessionID == sessi.SessionID).Where(p => p.Seat == seat).Count() == 0)
+                    {
+
+                        chosen_seats.Add(seat);
+                        sender = clickedButton;
+                    }
+                    else
+                    {
+                        clickedButton.Background = Brushes.Red;
+                        sender = clickedButton;
+
+                        MessageBox.Show("Seat is already taken.");
+                    }
                 }
             }
         }
