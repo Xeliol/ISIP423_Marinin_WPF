@@ -28,3 +28,7 @@ C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\SignupPage.baml
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AccountPage.g.cs
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AccountPage.baml
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\SessionPage.g.cs
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\SessionPage.baml
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\TicketPage.g.cs
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\TicketPage.baml

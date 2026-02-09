@@ -30,7 +30,7 @@
             </ListBox.ItemsPanel>
         </ListBox>
         <TextBlock FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White">Movies</TextBlock>
-        <StackPanel Margin="120 0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <StackPanel Margin="140 0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <ComboBox Margin="5" Width="100" Height="20" x:Name="SortBox" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="SortBox_SelectionChanged"></ComboBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">

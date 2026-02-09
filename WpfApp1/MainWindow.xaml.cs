@@ -37,6 +37,12 @@ namespace WpfApp1
             Page currentPage = MainFrame.Content as Page;
             if (MainFrame.NavigationService.CanGoBack) MainFrame.NavigationService.GoBack();
         }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Page currentPage = MainFrame.Content as Page;
+            if (MainFrame.NavigationService.CanGoBack) MainFrame.NavigationService.Navigate(new Pages.MainPage());
+        }
     }
 
     public static class NavigationData

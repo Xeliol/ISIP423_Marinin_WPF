@@ -36,12 +36,31 @@ namespace WpfApp1.Pages
         private void AccountButton_Click(object sender, RoutedEventArgs e)
         {
             if ((NavigationData.CurrentData as CurData).ID == -1) NavigationService.Navigate(new LoginPage());
-            //else NavigationService.Navigate(new AccountPage());
+            else NavigationService.Navigate(new AccountPage());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            var curdata = NavigationData.CurrentData as CurData;
+            if (curdata.ID == -1)
+            {
+                MessageBox.Show("You need to be logged in to buy a ticket.");
+                NavigationService.Navigate(new LoginPage());
+            } else
+            {
+                Button clickedButton = sender as Button;
 
+                ListBoxItem listBoxItem = (ListBoxItem)SessionListBox.ContainerFromElement(clickedButton);
+
+                if (listBoxItem != null)
+                {
+                    object dataItem = listBoxItem.Content;
+
+                    var sess = dataItem as Session;
+
+                    NavigationService.Navigate(new SessionPage(sess));
+                }
+            }
         }
     }
 }

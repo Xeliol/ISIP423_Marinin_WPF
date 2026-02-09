@@ -10,11 +10,13 @@
 
     <Grid Background="FloralWhite">
         <TextBlock Height="30" VerticalAlignment="Top" Background="MediumPurple"></TextBlock>
+        <TextBlock FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White">Account</TextBlock>
         <StackPanel Margin="0 40" Orientation="Horizontal">
             <StackPanel x:Name="MoviePanel" Width="360" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Login, StringFormat=Name: {0}}" HorizontalAlignment="Center"/>
                 <TextBlock Text="{Binding Phone, StringFormat=Phone: {0}}" HorizontalAlignment="Center"/>
                 <TextBlock Text="{Binding Email, StringFormat=Email: {0}}" HorizontalAlignment="Center"/>
+                <Button x:Name="LogOutButton"  Width="100" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White" Click="LogOutButton_Click">Log Out</Button>
             </StackPanel>
             <StackPanel Width="400" VerticalAlignment="Top" HorizontalAlignment="Stretch">
                 <TextBlock Text="Tickets" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
@@ -22,10 +24,11 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Height="100" Width="400">
-                                <TextBlock FontSize="18" FontWeight="Bold" Text="Session" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding TheaterID, StringFormat=Theater №{0}}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Theaters.Rating, StringFormat=Rating: {0}}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Time, StringFormat={}{0:dd MMMM, hh:mm tt}}" HorizontalAlignment="Center"/>
+                                <TextBlock FontSize="18" FontWeight="Bold" Text="Ticket" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Session.TheaterID, StringFormat=Theater №{0}}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Seat, StringFormat=Seat: №{0}}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Session.Theaters.Rating, StringFormat=Rating: {0}}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Session.Time, StringFormat={}{0:dd MMMM, hh:mm tt}}" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -37,6 +40,5 @@
                 </ListBox>
             </StackPanel>
         </StackPanel>
-        <TextBlock FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White">Account</TextBlock>
     </Grid>
 </Page>

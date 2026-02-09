@@ -31,5 +31,17 @@ namespace WpfApp1.Pages
 
             SessionListBox.ItemsSource = Core.Context.Tickets.Where(t => t.UserID == user.UserID).ToList();
         }
+
+        private void LogOutButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationData.CurrentData = new CurData
+            {
+                ID = -1,
+                Login = "Anon",
+                MovieID = -1
+            };
+            MessageBox.Show("Logged Out.");
+            NavigationService.Navigate(new MainPage());
+        }
     }
 }
