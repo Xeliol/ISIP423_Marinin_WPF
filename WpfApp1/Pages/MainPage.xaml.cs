@@ -86,7 +86,7 @@ namespace WpfApp1.Pages
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            UserListBox.ItemsSource = Core.Context.Movies.ToList().Where(p => p.Name.Contains(SearchBox.Text));
+            UserListBox.ItemsSource = Core.Context.Movies.ToList().Where(p => p.Name.ToLower().Contains(SearchBox.Text.ToLower()));
         }
     }
 }
