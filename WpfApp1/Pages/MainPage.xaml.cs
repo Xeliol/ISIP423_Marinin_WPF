@@ -59,7 +59,7 @@ namespace WpfApp1.Pages
         private void AccountButton_Click(object sender, RoutedEventArgs e)
         {
             if((NavigationData.CurrentData as CurData).ID == -1) NavigationService.Navigate(new LoginPage());
-            //else NavigationService.Navigate(new AccountPage());
+            else NavigationService.Navigate(new AccountPage());
         }
 
         private void SortBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
