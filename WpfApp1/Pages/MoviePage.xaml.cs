@@ -28,6 +28,9 @@ namespace WpfApp1.Pages
             Movies mov = Core.Context.Movies.ToList()[curdata.MovieID];
 
             this.DataContext = mov;
+
+            SessionListBox.ItemsSource = Core.Context.Session.Where(p => p.MovieID == mov.MovieID).ToList();
+
         }
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)

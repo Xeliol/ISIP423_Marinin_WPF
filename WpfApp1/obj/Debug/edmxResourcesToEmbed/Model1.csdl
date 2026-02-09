@@ -41,7 +41,7 @@
       <PropertyRef Name="TheaterID" />
     </Key>
     <Property Name="TheaterID" Type="Int32" Nullable="false" />
-    <Property Name="Rating" Type="Double" Nullable="false" />
+    <Property Name="Rating" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Seats" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Session" Relationship="Self.FK_Session_Theaters" FromRole="Theaters" ToRole="Session" />
   </EntityType>

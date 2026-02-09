@@ -37,7 +37,7 @@
       <PropertyRef Name="TheaterID" />
     </Key>
     <Property Name="TheaterID" Type="int" Nullable="false" />
-    <Property Name="Rating" Type="float" Nullable="false" />
+    <Property Name="Rating" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Seats" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Tickets">

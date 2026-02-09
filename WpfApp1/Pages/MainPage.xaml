@@ -18,7 +18,7 @@
                         <TextBlock Text="{Binding Genre, StringFormat=Genre: {0}}" HorizontalAlignment="Center"/>
                         <TextBlock Text="{Binding Rating, StringFormat=Rating: {0}}" HorizontalAlignment="Center"/>
                         <TextBlock Text="{Binding Rating, StringFormat=Age Rating: {0}}" HorizontalAlignment="Center"/>
-                        <TextBlock Text="{Binding ReleaseDate, StringFormat={}{0:dd-MMM-yyyy}}" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding ReleaseDate, StringFormat={}{0:d MMMM, yyyy}}" HorizontalAlignment="Center"/>
                         <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="MediumPurple" Foreground="White">Buy a Ticket</Button>
                     </StackPanel>
                 </DataTemplate>

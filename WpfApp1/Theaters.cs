@@ -21,7 +21,7 @@ namespace WpfApp1
         }
     
         public int TheaterID { get; set; }
-        public double Rating { get; set; }
+        public string Rating { get; set; }
         public int Seats { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

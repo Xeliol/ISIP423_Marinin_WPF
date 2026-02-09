@@ -11,7 +11,7 @@
     <Grid Background="FloralWhite">
         <TextBlock Height="30" VerticalAlignment="Top" Background="MediumPurple"></TextBlock>
         <StackPanel Margin="0 30" Orientation="Horizontal">
-            <StackPanel x:Name="MoviePanel" Height="400" Width="360" HorizontalAlignment="Left">
+            <StackPanel x:Name="MoviePanel" Height="420" Width="360" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Image Margin="20" Height="240" Width="240" Source="{Binding PosterPath}"/>
                 <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Center"/>
                 <TextBlock Text="{Binding Genre, StringFormat=Genre: {0}}" HorizontalAlignment="Center"/>
@@ -19,10 +19,27 @@
                 <TextBlock Text="{Binding Rating, StringFormat=Age Rating: {0}}" HorizontalAlignment="Center"/>
                 <TextBlock Text="{Binding ReleaseDate, StringFormat={}{0:dd-MMM-yyyy}}" HorizontalAlignment="Center"/>
             </StackPanel>
-            <StackPanel Width="400">
+            <StackPanel Width="400" VerticalAlignment="Top" HorizontalAlignment="Stretch">
                 <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
                 <TextBlock Text="{Binding Description}" FontSize="14" HorizontalAlignment="Center" TextWrapping="Wrap"/>
-                <Button Margin="5" Width="240" Height="50" Click="Button_Click" FontSize="30" FontWeight="Bold" Background="MediumPurple" Foreground="White">Buy a Ticket</Button>
+                <ListBox x:Name="SessionListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" Background="FloralWhite">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Height="100" Width="400">
+                                <TextBlock FontSize="18" FontWeight="Bold" Text="Session" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding TheaterID, StringFormat=Theater №{0}}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Theaters.Rating, StringFormat=Rating: {0}}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Time, StringFormat={}{0:dd MMMM, hh:mm tt}}" HorizontalAlignment="Center"/>
+                                <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="MediumPurple" Foreground="White">Buy a Ticket</Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
             </StackPanel>
         </StackPanel>
         <TextBlock FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White">Movie Details</TextBlock>

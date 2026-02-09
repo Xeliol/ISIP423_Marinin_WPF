@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,7 +28,29 @@ namespace WpfApp1.Pages
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            var log_user = Core.Context.Users.ToList().Where(p => p.Login == LoginBox.Text);
+            if (log_user.Count() != 0)
+            {
+                log_user = Core.Context.Users.ToList().Where(p => p.Login == LoginBox.Text).Where(p => p.Password == PassBox.Text);
+                if (log_user.Count() != 0)
+                {
+                    var cur = NavigationData.CurrentData as CurData;
 
+                    cur.Login = log_user.First().Login;
+                    cur.Password = log_user.First().Password;
+                    cur.ID = log_user.First().UserID;
+
+                    MessageBox.Show("Logged in!");
+                    NavigationService.Navigate(new MainPage());
+                }
+                else
+                {
+
+                }
+            } else
+            {
+                MessageBox.Show("No such user.");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
