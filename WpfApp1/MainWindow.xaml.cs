@@ -28,11 +28,11 @@ namespace WpfApp1
             //NavigationData.CurrentData = cart;
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        /*private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Page currentPage = MainFrame.Content as Page;
             if (MainFrame.NavigationService.CanGoBack) MainFrame.NavigationService.GoBack();
-        }
+        }*/
     }
 
     public static class NavigationData

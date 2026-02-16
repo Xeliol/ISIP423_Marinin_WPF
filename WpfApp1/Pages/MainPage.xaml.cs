@@ -40,6 +40,8 @@ namespace WpfApp1.Pages
             PartTypeBox.ItemsSource = types;
         }
 
+        List<basepart_> AddedParts = new List<basepart_>();
+
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
             Check_Filters();
@@ -76,6 +78,49 @@ namespace WpfApp1.Pages
             {
                 ProductListBox.ItemsSource = Core.Context.basepart_.ToList();
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            ListBoxItem listBoxItem = (ListBoxItem)ProductListBox.ContainerFromElement(clickedButton);
+
+            if (listBoxItem != null)
+            {
+                object dataItem = listBoxItem.Content;
+
+                var prod = dataItem as basepart_;
+
+                AddedListBox.Items.Add(prod);
+            }  
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            ListBoxItem listBoxItem = (ListBoxItem)AddedListBox.ContainerFromElement(clickedButton);
+
+            if (listBoxItem != null)
+            {
+                object dataItem = listBoxItem.Content;
+
+                var prod = dataItem as basepart_;
+
+                AddedListBox.Items.Remove(prod);
+            }
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (AddedListBox.Items.Count > 0)
+            {
+                List<basepart_> src = new List<basepart_>();
+                foreach (var item in AddedListBox.Items) src.Add(item as basepart_);
+                NavigationService.Navigate(new SavePage(src));
+            }
+            else MessageBox.Show("The assembly is empty.");
         }
     }
 }

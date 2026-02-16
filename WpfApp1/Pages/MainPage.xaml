@@ -17,6 +17,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Button x:Name="LoadButton" Width="100" Height="25" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="0" Margin="5">Load Assembly</Button>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
             <TextBlock VerticalAlignment="Center" Margin="5">Search: </TextBlock>
             <TextBox x:Name="SearchBar" Width="150" Height="20" TextChanged="SearchBar_TextChanged"></TextBox>
@@ -34,7 +35,7 @@
                         <TextBlock Text="{Binding price, StringFormat=Price: {0}}" HorizontalAlignment="Center"/>
                         <TextBlock Text="{Binding manufacturer_.name, StringFormat=Manufacturer: {0}}" HorizontalAlignment="Center"/>
                         <TextBlock Text="{Binding parttype_.name, StringFormat=Type: {0}}" HorizontalAlignment="Center"/>
-                        <Button Margin="5" Width="120" Height="20">Add</Button>
+                        <Button Margin="5" Width="120" Height="20" Click="Button_Click">Add</Button>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -44,5 +45,29 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <ListBox x:Name="AddedListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="AliceBlue">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Height="50" Width="50" Source="{Binding image}"/>
+                            <StackPanel Orientation="Vertical" Width="240">
+                                <TextBlock FontWeight="Bold" Text="{Binding name}" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding price, StringFormat=Price: {0}}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding manufacturer_.name, StringFormat=Manufacturer: {0}}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding parttype_.name, StringFormat=Type: {0}}" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                            <Button Margin="5" Width="50" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Foreground="White" Background="Red" Click="Button_Click_1">x</Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </StackPanel>
+        <Button x:Name="SaveButton" Width="100" Height="25" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="1" Margin="20" Click="SaveButton_Click"> Save Assembly</Button>
     </Grid>
 </Page>
