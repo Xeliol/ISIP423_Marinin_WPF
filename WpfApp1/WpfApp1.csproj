@@ -119,6 +119,9 @@
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AssemblyPage.xaml.cs">
+      <DependentUpon>AssemblyPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SavePage.xaml.cs">
       <DependentUpon>SavePage.xaml</DependentUpon>
     </Compile>
@@ -178,6 +181,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AssemblyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

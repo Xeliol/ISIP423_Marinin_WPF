@@ -1,0 +1,39 @@
+﻿<Page x:Class="WpfApp1.Pages.AssemblyPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AssemblyPage">
+
+    <Grid Margin="40">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ListBox x:Name="AssemblyListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="AliceBlue" Grid.Row="0" Width="700">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding id}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock FontWeight="Bold" Text="{Binding name}" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Center" TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding author, StringFormat=Author: {0}}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <Button Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left">Load</Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Click="CancelButton_Click" Width="75">Back</Button>
+        </StackPanel>
+    </Grid>
+</Page>

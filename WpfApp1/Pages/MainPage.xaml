@@ -17,7 +17,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="LoadButton" Width="100" Height="25" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="0" Margin="5">Load Assembly</Button>
+        <Button x:Name="LoadButton" Width="100" Height="25" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="0" Margin="5" Click="LoadButton_Click">Load Assembly</Button>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
             <TextBlock VerticalAlignment="Center" Margin="5">Search: </TextBlock>
             <TextBox x:Name="SearchBar" Width="150" Height="20" TextChanged="SearchBar_TextChanged"></TextBox>

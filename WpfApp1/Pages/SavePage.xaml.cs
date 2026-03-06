@@ -57,6 +57,7 @@ namespace WpfApp1.Pages
                     Core.Context.partassembly_.Add(partas);
                     Core.Context.SaveChanges();
                 }
+                MessageBox.Show("Assembly saved successfully!");
             }
             else MessageBox.Show("One of the inputs is empty!");
         }

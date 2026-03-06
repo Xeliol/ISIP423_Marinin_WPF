@@ -38,6 +38,8 @@ namespace WpfApp1.Pages
             SortBox.ItemsSource = manufacts;
 
             PartTypeBox.ItemsSource = types;
+
+            //AddedListBox.ItemsSource = types;
         }
 
         List<basepart_> AddedParts = new List<basepart_>();
@@ -121,6 +123,11 @@ namespace WpfApp1.Pages
                 NavigationService.Navigate(new SavePage(src));
             }
             else MessageBox.Show("The assembly is empty.");
+        }
+
+        private void LoadButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AssemblyPage());
         }
     }
 }
