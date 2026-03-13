@@ -40,9 +40,12 @@ namespace WpfApp1.Pages
             PartTypeBox.ItemsSource = types;
 
             //AddedListBox.ItemsSource = types;
+            List<basepart_> savedParts = NavigationData.CurrentData as List<basepart_>;
+            for(int i = 0; i < savedParts.Count(); i++)
+            {
+                AddedListBox.Items.Add(savedParts[i]);
+            }
         }
-
-        List<basepart_> AddedParts = new List<basepart_>();
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -94,7 +97,50 @@ namespace WpfApp1.Pages
 
                 var prod = dataItem as basepart_;
 
-                AddedListBox.Items.Add(prod);
+                var currentParts = AddedListBox.Items.Cast<basepart_>().ToList();
+
+                bool flag = true;
+                //socket check
+                if(prod.parttypeid == 1 || prod.parttypeid == 4 || prod.parttypeid == 7)
+                {
+                    foreach(var i in currentParts)
+                    {
+                        if (i.parttypeid == 1 || i.parttypeid == 4 || i.parttypeid == 7)
+                        {
+
+                        }
+                    }
+                }
+                //memory type check
+                if(prod.parttypeid == 3 || prod.parttypeid == 4)
+                {
+                    switch (prod.parttypeid)
+                    {
+                        case 3:
+                            foreach (var i in currentParts)
+                            {
+                                if (i.parttypeid == 4)
+                                {
+                                    flag = Core.Context.motherboard_.Where(m => m.id == i.id).First().memorytypeid == Core.Context.ram_.Where(m => m.id == prod.id).First().memorytypeid;
+                                    if (flag == false) MessageBox.Show("Memory type of RAM and Motherboard incompatible");
+                                }
+                            }
+                            break;
+                        case 4:
+                            foreach (var i in currentParts)
+                            {
+                                if (i.parttypeid == 3)
+                                {
+                                    flag = Core.Context.motherboard_.Where(m => m.id == prod.id).First().memorytypeid == Core.Context.ram_.Where(m => m.id == i.id).First().memorytypeid;
+                                    if (flag == false) MessageBox.Show("Memory type of RAM and Motherboard incompatible");
+                                }
+                            }
+                            break;
+                    }
+
+                }
+                
+                if(flag) AddedListBox.Items.Add(prod);
             }  
         }
 
@@ -120,6 +166,7 @@ namespace WpfApp1.Pages
             {
                 List<basepart_> src = new List<basepart_>();
                 foreach (var item in AddedListBox.Items) src.Add(item as basepart_);
+                NavigationData.CurrentData = AddedListBox.Items.Cast<basepart_>().ToList();
                 NavigationService.Navigate(new SavePage(src));
             }
             else MessageBox.Show("The assembly is empty.");
@@ -127,6 +174,7 @@ namespace WpfApp1.Pages
 
         private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
+            NavigationData.CurrentData = AddedListBox.Items.Cast<basepart_>().ToList();
             NavigationService.Navigate(new AssemblyPage());
         }
     }

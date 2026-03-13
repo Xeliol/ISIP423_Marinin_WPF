@@ -25,7 +25,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            //NavigationData.CurrentData = cart;
+            NavigationData.CurrentData = new List<basepart_>();
         }
 
         /*private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -33,13 +33,5 @@ namespace WpfApp1
             Page currentPage = MainFrame.Content as Page;
             if (MainFrame.NavigationService.CanGoBack) MainFrame.NavigationService.GoBack();
         }*/
-    }
-
-    public static class NavigationData
-    {
-        public static object CurrentData
-        {
-            get; set;
-        }
     }
 }

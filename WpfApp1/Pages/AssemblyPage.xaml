@@ -21,7 +21,7 @@
                         <TextBlock Text="{Binding id}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                         <TextBlock FontWeight="Bold" Text="{Binding name}" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Center" TextWrapping="Wrap"/>
                         <TextBlock Text="{Binding author, StringFormat=Author: {0}}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                        <Button Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left">Load</Button>
+                        <Button Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Click="Button_Click">Load</Button>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
