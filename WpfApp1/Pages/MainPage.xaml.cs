@@ -100,19 +100,59 @@ namespace WpfApp1.Pages
                 var currentParts = AddedListBox.Items.Cast<basepart_>().ToList();
 
                 bool flag = true;
+
                 //socket check
-                if(prod.parttypeid == 1 || prod.parttypeid == 4 || prod.parttypeid == 7)
+                if (prod.parttypeid == 1 || prod.parttypeid == 4 || prod.parttypeid == 7)
                 {
-                    foreach(var i in currentParts)
+                    foreach (var i in currentParts)
                     {
                         if (i.parttypeid == 1 || i.parttypeid == 4 || i.parttypeid == 7)
                         {
-
+                            switch (prod.parttypeid)
+                            {
+                                case 1:
+                                    if (i.parttypeid == 7)
+                                    {
+                                        flag = Core.Context.socketprocessorcooler_.Where(m => m.processorcoolerid == i.id).Select(m => m.socketid).Contains(Core.Context.cpu_.Where(m => m.id == prod.id).First().socketid);
+                                        if (flag == false) MessageBox.Show("Socket of Cooler and CPU incompatible");
+                                    }
+                                    else if (i.parttypeid == 4)
+                                    {
+                                        flag = Core.Context.cpu_.Where(m => m.id == prod.id).First().socketid == Core.Context.motherboard_.Where(m => m.id == i.id).First().socketid;
+                                        if (flag == false) MessageBox.Show("Memory type of CPU and Motherboard incompatible");
+                                    }
+                                    break;
+                                case 4:
+                                    if (i.parttypeid == 7)
+                                    {
+                                        flag = Core.Context.socketprocessorcooler_.Where(m => m.processorcoolerid == i.id).Select(m => m.socketid).Contains(Core.Context.motherboard_.Where(m => m.id == prod.id).First().socketid);
+                                        if (flag == false) MessageBox.Show("Socket of Cooler and Motherboard incompatible");
+                                    }
+                                    else if (i.parttypeid == 1)
+                                    {
+                                        flag = Core.Context.cpu_.Where(m => m.id == i.id).First().socketid == Core.Context.motherboard_.Where(m => m.id == prod.id).First().socketid;
+                                        if (flag == false) MessageBox.Show("Memory type of CPU and Motherboard incompatible");
+                                    }
+                                    break;
+                                case 7:
+                                    if (i.parttypeid == 4)
+                                    {
+                                        flag = Core.Context.socketprocessorcooler_.Where(m => m.processorcoolerid == prod.id).Select(m => m.socketid).Contains(Core.Context.cpu_.Where(m => m.id == i.id).First().socketid);
+                                        if (flag == false) MessageBox.Show("Socket of Cooler and CPU incompatible");
+                                    }
+                                    else if (i.parttypeid == 1)
+                                    {
+                                        flag = Core.Context.socketprocessorcooler_.Where(m => m.processorcoolerid == prod.id).Select(m => m.socketid).Contains(Core.Context.motherboard_.Where(m => m.id == i.id).First().socketid);
+                                        if (flag == false) MessageBox.Show("Socket of Cooler and Motherboard incompatible");
+                                    }
+                                    break;
+                            }
                         }
                     }
                 }
+
                 //memory type check
-                if(prod.parttypeid == 3 || prod.parttypeid == 4)
+                if (prod.parttypeid == 3 || prod.parttypeid == 4)
                 {
                     switch (prod.parttypeid)
                     {
@@ -139,10 +179,39 @@ namespace WpfApp1.Pages
                     }
 
                 }
-                
-                if(flag) AddedListBox.Items.Add(prod);
-            }  
+
+                //gpu and powersupply check
+                if (prod.parttypeid == 2 || prod.parttypeid == 6)
+                {
+                    switch (prod.parttypeid)
+                    {
+                        case 2:
+                            foreach (var i in currentParts)
+                            {
+                                if (i.parttypeid == 6)
+                                {
+                                    flag = Core.Context.powersupply_.Where(m => m.id == i.id).First().power >= Core.Context.gpu_.Where(m => m.id == prod.id).First().recommendpower;
+                                    if (flag == false) MessageBox.Show("Power supply doesn't have enough power for GPU");
+                                }
+                            }
+                            break;
+                        case 6:
+                            foreach (var i in currentParts)
+                            {
+                                if (i.parttypeid == 2)
+                                {
+                                    flag = Core.Context.powersupply_.Where(m => m.id == prod.id).First().power >= Core.Context.gpu_.Where(m => m.id == i.id).First().recommendpower;
+                                    if (flag == false) MessageBox.Show("Power supply doesn't have enough power for GPU");
+                                }
+                            }
+                            break;
+                    }
+                }
+
+                if (flag) AddedListBox.Items.Add(prod);
+            }
         }
+
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
