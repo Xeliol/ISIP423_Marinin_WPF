@@ -130,7 +130,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\dead-skeleton.gif" />
+    <Resource Include="Images\glitterypopcorn-wizard.gif" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\skeleton-banging-shield.gif" />
   </ItemGroup>

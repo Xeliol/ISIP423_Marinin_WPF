@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Windows.Data;
 
 namespace ISIP423_Marinin.Classes
 {
     class Enemy
     {
+        public string img = "..\\Images\\dead-skeleton.gif";
         public string name { get; set; }
         public int hp { get; set; }
         public int damage { get; set; }

@@ -31,8 +31,19 @@
         <ProgressBar x:Name="HealthBar" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Value="100"></ProgressBar>
         <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24">Health</Label>
 
-        <Image x:Name="EnemyImg" gif:ImageBehavior.AnimatedSource="..\Images\skeleton-banging-shield.gif" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Visibility="Hidden"></Image>
-
+        <ListBox x:Name="EnemyListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Visibility="Hidden" IsEnabled="False">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Image gif:ImageBehavior.AnimatedSource="..\Images\skeleton-banging-shield.gif" VerticalAlignment="Center"></Image>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+        
         <StackPanel x:Name="ItemChoice" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal" Visibility="Hidden">
             <Button x:Name="TakeButton"  Width="70" Height="30" Margin="20" Background="CornflowerBlue" Click="TakeButton_Click">Take</Button>
             <Button x:Name="LeaveButton" Width="70" Height="30" Margin="20" Background="PaleVioletRed" Click="LeaveButton_Click">Leave</Button>
@@ -53,7 +64,7 @@
         <StackPanel Grid.Column="1" Grid.Row="3">
             <Label HorizontalAlignment="Center" FontWeight="Black" FontSize="18">Logs</Label>
         </StackPanel>
-        <ScrollViewer Grid.Column="1" Grid.Row="3" Margin="5 35 5 10">
+        <ScrollViewer x:Name="ScrollView" Grid.Column="1" Grid.Row="3" Margin="5 35 5 10">
             <TextBlock x:Name="LogsText" TextWrapping="Wrap"></TextBlock>
         </ScrollViewer>
     </Grid>

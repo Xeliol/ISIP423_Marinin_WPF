@@ -156,8 +156,9 @@ namespace WpfApp1.Pages
                             fighting = true;
                         }
                         LogsText.Text += ("\nPress OK to continue");
+                        EnemyListBox.ItemsSource = new List<Enemy> { enemy, enemy };
                         OKbutton.Visibility = Visibility.Visible;
-                        EnemyImg.Visibility = Visibility.Visible;
+                        EnemyListBox.Visibility = Visibility.Visible;
                     }
                 }
                 else if (enemy.hp != 0) //CHECK FIGHT & HP
@@ -182,12 +183,13 @@ namespace WpfApp1.Pages
                     fight_count += 1;
                     LogsText.Text += ("\nPress OK to continue");
                     OKbutton.Visibility = Visibility.Visible;
-                    EnemyImg.Visibility = Visibility.Hidden;
+                    EnemyListBox.Visibility = Visibility.Hidden;
                 }
             }
             else {
                 NavigationService.Navigate(new GameOver());
             }
+            ScrollView.ScrollToBottom();
         }
 
         private void AttackLogic()
