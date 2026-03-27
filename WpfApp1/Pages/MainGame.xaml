@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:gif="http://wpfanimatedgif.codeplex.com"
       xmlns:local="clr-namespace:WpfApp1.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -30,14 +31,30 @@
         <ProgressBar x:Name="HealthBar" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Value="100"></ProgressBar>
         <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24">Health</Label>
 
+        <Image x:Name="EnemyImg" gif:ImageBehavior.AnimatedSource="..\Images\skeleton-banging-shield.gif" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Visibility="Hidden"></Image>
+
+        <StackPanel x:Name="ItemChoice" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal" Visibility="Hidden">
+            <Button x:Name="TakeButton"  Width="70" Height="30" Margin="20" Background="CornflowerBlue" Click="TakeButton_Click">Take</Button>
+            <Button x:Name="LeaveButton" Width="70" Height="30" Margin="20" Background="PaleVioletRed" Click="LeaveButton_Click">Leave</Button>
+        </StackPanel>
+
+        <StackPanel x:Name="AttackChoice" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal"  Visibility="Hidden">
+            <Button x:Name="DefendButton"  Width="70" Height="30" Margin="20" Background="CornflowerBlue" Click="DefendButton_Click">Defend</Button>
+            <Button x:Name="AttackButton" Width="70" Height="30" Margin="20" Background="PaleVioletRed" Click="AttackButton_Click">Attack</Button>
+        </StackPanel>
+
+        <Button x:Name="OKbutton" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Width="70" Height="30" VerticalAlignment="Bottom" Margin="20" Visibility="Hidden" Click="OKclick">OK</Button>
+
         <StackPanel Grid.Column="0" Grid.Row="3">
             <Label HorizontalAlignment="Center" FontWeight="Black" FontSize="18">Inventory</Label>
-            <Label x:Name="ArmourText" FontSize="18">Armor:</Label>
-            <Label x:Name="WeaponText" FontSize="18">Weapon:</Label>
+            <TextBlock x:Name="ArmourText" FontSize="18">Armor:</TextBlock>
+            <TextBlock x:Name="WeaponText" FontSize="18">Weapon:</TextBlock>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="3">
             <Label HorizontalAlignment="Center" FontWeight="Black" FontSize="18">Logs</Label>
-            <Label x:Name="LogsText">Placeholder</Label>
         </StackPanel>
+        <ScrollViewer Grid.Column="1" Grid.Row="3" Margin="5 35 5 10">
+            <TextBlock x:Name="LogsText" TextWrapping="Wrap"></TextBlock>
+        </ScrollViewer>
     </Grid>
 </Page>

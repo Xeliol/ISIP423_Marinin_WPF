@@ -20,3 +20,7 @@ C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\MainGame.g.cs
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\GameOver.baml
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\MainGame.baml
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\bin\Debug\WpfAnimatedGif.dll
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\bin\Debug\WpfAnimatedGif.pdb
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\bin\Debug\WpfAnimatedGif.xml
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\WpfApp1.csproj.Up2Date

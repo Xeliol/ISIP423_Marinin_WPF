@@ -36,4 +36,10 @@ namespace ISIP423_Marinin.Classes
             hp = 100;
         }
     }
+
+    enum ItemType
+    {
+        Weapon,
+        Armor
+    }
 }
