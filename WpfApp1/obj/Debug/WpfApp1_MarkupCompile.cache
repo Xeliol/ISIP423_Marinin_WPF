@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\App.xaml
-1219584333
+13-776061569
 
-6-502434485
+17388745079
 13-1310406943
-MainWindow.xaml;
+MainWindow.xaml;Pages\AccountPage.xaml;Pages\AdminPage.xaml;Pages\AppointmentInfoPage.xaml;Pages\AppointmentListPage.xaml;Pages\AppointmentPage.xaml;Pages\CartPage.xaml;Pages\LoginPage.xaml;Pages\ManagerPage.xaml;Pages\MasterPage.xaml;Pages\ProductsPage.xaml;Pages\RegisterPage.xaml;Pages\StartPage.xaml;
 
-True
+False
 

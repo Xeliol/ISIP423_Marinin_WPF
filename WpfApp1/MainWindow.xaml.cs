@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,29 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+
+            NavigationData.CurrentData = null;
+
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Page currentPage = MainFrame.Content as Page;
+            if (MainFrame.NavigationService.CanGoBack) MainFrame.NavigationService.GoBack();
+        }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Page currentPage = MainFrame.Content as Page;
+            if (MainFrame.NavigationService.CanGoBack) MainFrame.NavigationService.Navigate(new Pages.StartPage());
+        }
+    }
+
+    public static class NavigationData
+    {
+        public static object CurrentData
+        {
+            get; set;
         }
     }
 }
