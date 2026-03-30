@@ -6,6 +6,7 @@ namespace ISIP423_Marinin.Classes
     {
         public Mage() : base(EnemyType.Mage, "Mage")
         {
+            img = "..\\Images\\wizard-dance.gif";
             hp = Convert.ToInt32(50);
             armor = Convert.ToInt32(5);
             damage = Convert.ToInt32(20);

@@ -6,6 +6,7 @@ namespace ISIP423_Marinin.Classes
     {
         public Archimage(double attackMult = 1.6, double hpMult = 1.8, double armorMult = 1.1, int chanceMult = 5) : base()
         {
+            img = "..\\Images\\john-metal-gear-metal-gear-solid.gif";
             name = "Archimage C++";
             hp = Convert.ToInt32(Math.Round(hpMult * hp));
             armor = Convert.ToInt32(Math.Round(armorMult * armor));

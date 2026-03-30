@@ -25,14 +25,17 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
             ContinueGame();
+            EnemyListBox.ItemsSource = enemies;
         }
 
+        List<Enemy> enemies = new List<Enemy>();
         Player player = new Player();
         int events;
         bool fighting = false;
         bool frozen = false;
-        Enemy enemy = new Enemy(EnemyType.Goblin, "tmp");
+        //Enemy enemy = new Enemy(EnemyType.Goblin, "tmp");
         int fight_count = 0;
+        int level = 0;
         ItemType item_t = ItemType.Weapon;
         string item_name = " ";
         int item_int = 0;
@@ -42,7 +45,7 @@ namespace WpfApp1.Pages
         {
             ArmourText.Text = "Armor: " + player.armor_name + " (" + player.armor + ")";
             WeaponText.Text = "Weapon: " + player.weapon_name + " (" + player.weapon + ")"; 
-            HealthBar.Value = player.hp;
+            HealthBar.Value = player.hp;        
 
             if (player.hp != 0)
             {
@@ -121,50 +124,67 @@ namespace WpfApp1.Pages
                     else // SPAWN ENEMY
                     {
                         LogsText.Text += ("\nYou encountered a foe!");
-                        int type = RandomGame.NextNum(1, 5);
-
+                        
                         if (fight_count < 10) // REGULAR ENEMY
                         {
-                            if (type == 1) enemy = new Goblin();
-                            if (type == 2) enemy = new Skeleton();
-                            if (type == 3) enemy = new Mage();
-                            if (type == 4) enemy = new Slime();
-                            LogsText.Text += ($"\nIt's a {enemy.name}!");
+                            for (int i = 0; i < RandomGame.NextNum(1, 4); i++)
+                            {
+                                enemies.Add(RndEnemy());
+                            }
+                            foreach(Enemy enm in enemies)
+                            {
+                                LogsText.Text += ($"\nIt's a {enm.name}!");
+                            }
                             fighting = true;
                         }
                         else // BOSS
                         {
                             fight_count = 0;
-                            type = RandomGame.NextNum(1, 5);
+                            int type = RandomGame.NextNum(1, 5);
                             LogsText.Text += ("\n---IT'S A BOSS!---");
                             if (type == 1)
                             {
-                                enemy = new GoblinVVG();
+                                enemies.Add(new GoblinVVG());
                             }
                             if (type == 2)
                             {
-                                enemy = new Kovalski();
+                                enemies.Add(new Kovalski());
                             }
                             if (type == 3)
                             {
-                                enemy = new Archimage();
+                                enemies.Add(new Archimage());
                             }
                             if (type == 4)
                             {
-                                enemy = new Pestov();
+                                enemies.Add(new Pestov());
                             }
                             fighting = true;
                         }
                         LogsText.Text += ("\nPress OK to continue");
-                        EnemyListBox.ItemsSource = new List<Enemy> { enemy, enemy };
+                        
+                        EnemyListBox.ItemsSource = enemies;
+                        enemies = new List<Enemy>();
+                        foreach (Enemy enm in EnemyListBox.Items)
+                        {
+                            enemies.Add(enm);
+                        }
+                        EnemyListBox.ItemsSource = enemies;
                         OKbutton.Visibility = Visibility.Visible;
                         EnemyListBox.Visibility = Visibility.Visible;
                     }
                 }
-                else if (enemy.hp != 0) //CHECK FIGHT & HP
+                else if (EnemyListBox.Items.Count != 0) //CHECK FIGHT & HP
                 {
-                    LogsText.Text += ($"\nYour HP: {player.hp}\nYour Armor: {player.armor}\nYour Damage: {player.weapon}");
-                    LogsText.Text += ($"\n{enemy.name}'s HP: {enemy.hp}\n{enemy.name}'s Armor: {enemy.armor}\n{enemy.name}'s Damage: {enemy.damage}\n");
+                    LogsText.Text += ($"\nYour HP: {player.hp}\nYour Armor: {player.armor}\nYour Damage: {player.weapon}\n");
+                    foreach (Enemy enemy in EnemyListBox.Items)
+                    {
+                        ListBoxItem item_cont = EnemyListBox.ItemContainerGenerator.ContainerFromItem(enemy) as ListBoxItem;
+                        if (item_cont != null)
+                        {
+                            item_cont.TryFindResource("cur_hp");
+                        }
+                        LogsText.Text += ($"\n{enemy.name}'s HP: {enemy.hp}\n{enemy.name}'s Armor: {enemy.armor}\n{enemy.name}'s Damage: {enemy.damage}\n");
+                    }
                     if (!frozen)
                     {
                         LogsText.Text += ("\nWhat do you do?");
@@ -173,14 +193,20 @@ namespace WpfApp1.Pages
                     else
                     {
                         LogsText.Text += ("\nYou are frozen and unable to Act");
-                        frozen = enemy.Attack(ref player, false);
+                        foreach (Enemy enemy in EnemyListBox.Items)
+                        {
+                            frozen = frozen || enemy.Attack(ref player, false);
+                        }
                     }
                 }
-                else //CHECK FIGHT & HP - WIN
+                else if (EnemyListBox.Items.Count == 0) //CHECK FIGHT & HP - WIN
                 {
                     LogsText.Text += ("\n===============\nEnemy Defeated!\n===============");
                     fighting = false;
                     fight_count += 1;
+                    level++;
+                    level_text.Text = "Level: " + level;
+                    enemies = new List<Enemy>();
                     LogsText.Text += ("\nPress OK to continue");
                     OKbutton.Visibility = Visibility.Visible;
                     EnemyListBox.Visibility = Visibility.Hidden;
@@ -196,14 +222,43 @@ namespace WpfApp1.Pages
         {
             if (action == 1)
             {
-                frozen = enemy.Attack(ref player, true);
+                foreach (Enemy enemy in EnemyListBox.Items)
+                {
+                    frozen = enemy.Attack(ref player, true);
+                }
             }
             else if (action == 2)
             {
+                Enemy enemy = EnemyListBox.Items[0] as Enemy;
                 enemy.TakeDamage(Math.Max(0, player.weapon - enemy.armor * ((Convert.ToDouble(RandomGame.NextNum(7, 11)) / 10))));
-                if (enemy.hp != 0) frozen = enemy.Attack(ref player, false);
+                LogsText.Text += ($"\nYou deal {Math.Max(0, player.weapon - enemy.armor * ((Convert.ToDouble(RandomGame.NextNum(7, 11)) / 10)))} damage to {enemy.name}");
+                if (enemy.hp != 0)
+                {
+                    frozen = enemy.Attack(ref player, false);
+                    LogsText.Text += ($"\n{enemy.name} deals {enemy.damage} damage to You!");
+                } else
+                {
+                    enemies = new List<Enemy>();
+                    foreach(Enemy enm in EnemyListBox.Items)
+                    {
+                        enemies.Add(enm);
+                    }
+                    enemies.Remove(enemy);
+                    EnemyListBox.ItemsSource = enemies;
+                }
             }
             ContinueGame();
+        }
+
+        private Enemy RndEnemy()
+        {
+            Enemy enemy = new Enemy(EnemyType.Goblin, "tmp");
+            int type = RandomGame.NextNum(1, 5);
+            if (type == 1) enemy = new Goblin();
+            if (type == 2) enemy = new Skeleton();
+            if (type == 3) enemy = new Mage();
+            if (type == 4) enemy = new Slime();
+            return enemy;
         }
 
         private void OKclick(object sender, RoutedEventArgs e)

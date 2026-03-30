@@ -6,6 +6,7 @@ namespace ISIP423_Marinin.Classes
     {
         public GoblinVVG(double attackMult = 1.5, double hpMult = 2, double armorMult = 1.2, int chanceMult = 5) : base()
         {
+            img = "..\\Images\\goblin-hours-goblin.gif";
             name = "GoblinVVG";
             hp = Convert.ToInt32(Math.Round(hpMult * hp));
             armor = Convert.ToInt32(Math.Round(armorMult * armor));

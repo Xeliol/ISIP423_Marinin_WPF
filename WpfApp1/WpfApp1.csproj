@@ -137,5 +137,14 @@
   <ItemGroup>
     <Resource Include="Images\skeleton-banging-shield.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\goblin-dont-fear-goblin-reaper.gif" />
+    <Resource Include="Images\goblin-hours-goblin.gif" />
+    <Resource Include="Images\john-metal-gear-metal-gear-solid.gif" />
+    <Resource Include="Images\mane-im-dead.gif" />
+    <Resource Include="Images\monster-bob.gif" />
+    <Resource Include="Images\skeleton-pls-skeleton.gif" />
+    <Resource Include="Images\wizard-dance.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

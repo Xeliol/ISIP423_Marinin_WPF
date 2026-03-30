@@ -5,7 +5,7 @@ namespace ISIP423_Marinin.Classes
 {
     class Enemy
     {
-        public string img = "..\\Images\\dead-skeleton.gif";
+        public string img { get; set; }
         public string name { get; set; }
         public int hp { get; set; }
         public int damage { get; set; }
@@ -14,6 +14,7 @@ namespace ISIP423_Marinin.Classes
         public int chanceMult;
         public Enemy(EnemyType et, string n, double attackMult = 1, double hpMult = 1, double armorMult = 1, int chanceMult = 10)
         {
+            img = "..\\Images\\dead-skeleton.gif";
             enemyType = et; 
             name = n;
         }
@@ -23,7 +24,7 @@ namespace ISIP423_Marinin.Classes
             int chance = RandomGame.Chance(chanceMult);
             int dodge = RandomGame.Chance(10);
             if (!defending) p.TakeDamage(damage);
-            else if (dodge > 3 && defending)
+            else if (dodge > 6 && defending)
             {
                 if (enemyType == EnemyType.Skeleton) p.TakeDamage(damage);
                 else

@@ -6,6 +6,7 @@ namespace ISIP423_Marinin.Classes
     {
         public Goblin() : base(EnemyType.Goblin, "Goblin")
         {
+            img = "..\\Images\\goblin-dont-fear-goblin-reaper.gif";
             hp = Convert.ToInt32(30);
             armor = Convert.ToInt32(10);
             damage = Convert.ToInt32(10);

@@ -6,6 +6,7 @@ namespace ISIP423_Marinin.Classes
     {
         public Slime() : base(EnemyType.Slime, "Slime")
         {
+            img = "..\\Images\\monster-bob.gif";
             hp = Convert.ToInt32(30);
             armor = Convert.ToInt32(10);
             damage = Convert.ToInt32(10);
