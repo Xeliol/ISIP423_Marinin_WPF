@@ -24,23 +24,21 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
 
-            //var curdata = NavigationData.CurrentData as CurData;
-            //Users user = Core.Context.Users.ToList()[curdata.ID - 1];
+            var curdata = NavigationData.CurrentData as CurData;
+            Users user = Core.Context.Users.ToList()[curdata.ID - 1];
 
-            //this.DataContext = user;
+            this.DataContext = user;
 
-            //SessionListBox.ItemsSource = Core.Context.Tickets.Where(t => t.UserID == user.UserID).ToList();
+            SessionListBox.ItemsSource = Core.Context.Appointments.Where(t => t.UserID == user.UserID).ToList();
         }
 
         private void LogOutButton_Click(object sender, RoutedEventArgs e)
         {
-            /*NavigationData.CurrentData = new CurData
+            NavigationData.CurrentData = new CurData
             {
                 ID = -1,
-                Login = "Anon",
-                MovieID = -1
+                Login = "Anon"
             };
-            */
             MessageBox.Show("Logged Out.");
             NavigationService.Navigate(new StartPage());
         }

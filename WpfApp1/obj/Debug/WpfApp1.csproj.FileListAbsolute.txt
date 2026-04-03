@@ -38,3 +38,7 @@ C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\WpfApp
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\WpfApp1.exe
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\WpfApp1.pdb
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\WpfApp1.exe.config
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\WpfApp1_Content.g.cs
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\bin\Debug\EntityFramework.dll
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\WpfApp1.csproj.Up2Date

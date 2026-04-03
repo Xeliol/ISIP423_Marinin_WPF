@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5fc99f393bd5450ea04bf455428341e8" Name="Diagram1">
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Appointments" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Orders" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Products" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.ProductsOrder" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Services" Width="1.5" PointX="8.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.ServiceTypes" Width="1.5" PointX="6" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Users" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.UserType" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="Marinin_CosmeticsModel.FK_Appointments_Services" ManuallyRouted="false" />
+        <AssociationConnector Association="Marinin_CosmeticsModel.FK_Appointments_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="Marinin_CosmeticsModel.FK_Orders_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="Marinin_CosmeticsModel.FK_ProductsOrder_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="Marinin_CosmeticsModel.FK_ProductsOrder_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="Marinin_CosmeticsModel.FK_Services_ServiceTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="Marinin_CosmeticsModel.FK_Services_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="Marinin_CosmeticsModel.FK_Users_UserType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

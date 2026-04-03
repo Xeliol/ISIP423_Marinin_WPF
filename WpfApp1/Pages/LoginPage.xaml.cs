@@ -24,5 +24,56 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            bool auth = Auth(LoginBox.Text, PassBox.Text);
+            if (auth)
+            {
+                var log_user = Core.Context.Users.ToList().Where(p => p.Login == LoginBox.Text).Where(p => p.Password == PassBox.Text);
+                var cur = NavigationData.CurrentData as CurData;
+
+                cur.Login = log_user.First().Login;
+                cur.Password = log_user.First().Password;
+                cur.ID = log_user.First().UserID;
+
+                MessageBox.Show("Logged in!");
+                NavigationService.Navigate(new StartPage());
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RegisterPage());
+        }
+
+        /// <summary>
+        /// Этот метод проверяет можно ли авторизовать пользователя
+        /// </summary>
+        /// <param name="login">Введённый логин пользователя</param>
+        /// <param name="password">Введённый пароль пользователя</param> 
+        /// <returns>Можно ли авторизовать пользователя? (Ложь/Истина)</returns>
+        public bool Auth(string login, string password)
+        {
+            var log_user = Core.Context.Users.ToList().Where(p => p.Login == login);
+            if (log_user.Count() != 0)
+            {
+                log_user = Core.Context.Users.ToList().Where(p => p.Login == login).Where(p => p.Password == password);
+                if (log_user.Count() != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Wrong Password.");
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No such user.");
+                return false;
+            }
+        }
     }
 }

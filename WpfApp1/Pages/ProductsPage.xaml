@@ -8,7 +8,40 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductsPage">
 
-    <Grid>
-        
+    <Grid Background="MediumPurple">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--Menu-->
+        <TextBlock FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White">Welcome</TextBlock>
+        <StackPanel Margin="140 0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <ComboBox Margin="5" Width="100" Height="20" x:Name="SortBox" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="SortBox_SelectionChanged"></ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <TextBox x:Name="SearchBox" Margin="5" Width="200" Height="20" TextChanged="TextBox_TextChanged"></TextBox>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Width="100" Height="20" Click="AccountButton_Click" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White">My Account</Button>
+        </StackPanel>
+
+        <!--List-->
+        <ListBox x:Name="ProductListBox" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="FloralWhite">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Height="240" Width="220">
+                        <Image Height="120" Width="120" Source="{Binding ImagePath}"/>
+                        <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Genre, StringFormat=Genre: {0}}" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Rating, StringFormat=Rating: {0}}" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Rating, StringFormat=Age Rating: {0}}" HorizontalAlignment="Center"/>
+                        <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="MediumPurple" Foreground="White">Buy a Ticket</Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
     </Grid>
 </Page>

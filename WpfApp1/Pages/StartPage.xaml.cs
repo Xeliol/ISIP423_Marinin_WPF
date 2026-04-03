@@ -24,14 +24,11 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
 
-            //List<Movies> movies = Core.Context.Movies.ToList();
+            List<Users> masters = Core.Context.Users.Where(u => u.TypeID == 2).ToList();
 
-            //UserListBox.ItemsSource = movies;
+            MasterListBox.ItemsSource = masters;
 
-            List<string> SortItems = new List<string>()
-            {
-                "Genre", "Age Rating", "Name", "Rating"
-            };
+            List<string> SortItems = Core.Context.ServiceTypes.Select(t => t.Name).ToList();
 
             SortBox.ItemsSource = SortItems;
         }
@@ -46,47 +43,34 @@ namespace WpfApp1.Pages
             {
                 object dataItem = listBoxItem.Content;
 
-                //var mov = dataItem as Movies;
-
-                //var curdata = NavigationData.CurrentData as CurData;
-
-                //curdata.MovieID = mov.MovieID - 1;
-
-                //NavigationService.Navigate(new AppointmentPage());
+                NavigationService.Navigate(new AppointmentPage());
             }
         }
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)
         {
-            /*if ((NavigationData.CurrentData as CurData).ID == -1) NavigationService.Navigate(new LoginPage());
-            else NavigationService.Navigate(new AccountPage());*/
+            if ((NavigationData.CurrentData as CurData).ID == -1) NavigationService.Navigate(new LoginPage());
+            else NavigationService.Navigate(new AccountPage());
         }
 
         private void SortBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (SortBox.SelectedItem != null)
             {
-                switch (SortBox.SelectedItem.ToString())
-                {
-                    case "Genre":
-                        //MasterListBox.ItemsSource = Core.Context.Movies.ToList().OrderBy(p => p.Genre);
-                        break;
-                    case "Age Rating":
-                        //MasterListBox.ItemsSource = Core.Context.Movies.ToList().OrderBy(p => p.AgeRating);
-                        break;
-                    case "Name":
-                        //MasterListBox.ItemsSource = Core.Context.Movies.ToList().OrderBy(p => p.Name);
-                        break;
-                    case "Rating":
-                        //MasterListBox.ItemsSource = Core.Context.Movies.ToList().OrderBy(p => p.Rating);
-                        break;
-                }
+                //FIXXXXX
+                List<Users> newsource = Core.Context.Users.Where(u => u.TypeID == 2 && Core.Context.Services.Where(s => s.ServiceTypes.Name == SortBox.SelectedItem).Select(s => s.MasterID).Contains(u.UserID)).ToList();
+                MasterListBox.ItemsSource = newsource;
             }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             //MasterListBox.ItemsSource = Core.Context.Movies.ToList().Where(p => p.Name.ToLower().Contains(SearchBox.Text.ToLower()));
+        }
+
+        private void ProductsButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProductsPage());
         }
     }
 }

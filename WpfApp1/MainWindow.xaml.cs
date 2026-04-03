@@ -25,7 +25,11 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-            NavigationData.CurrentData = null;
+            NavigationData.CurrentData = new CurData
+            {
+                ID = -1,
+                Login = "Anon"
+            };
 
         }
 
