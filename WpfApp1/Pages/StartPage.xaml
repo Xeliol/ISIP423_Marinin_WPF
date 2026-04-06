@@ -28,13 +28,26 @@
         <ListBox x:Name="MasterListBox" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="FloralWhite">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Height="240" Width="220">
+                    <StackPanel Height="300" Width="260">
                         <Image Height="120" Width="120" Source="{Binding ImagePath}"/>
                         <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Center"/>
-                        <TextBlock Text="{Binding Genre, StringFormat=Genre: {0}}" HorizontalAlignment="Center"/>
-                        <TextBlock Text="{Binding Rating, StringFormat=Rating: {0}}" HorizontalAlignment="Center"/>
-                        <TextBlock Text="{Binding Rating, StringFormat=Age Rating: {0}}" HorizontalAlignment="Center"/>
-                        <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="MediumPurple" Foreground="White">Buy a Ticket</Button>
+                        <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="DeepPink" Foreground="White">Master Page</Button>
+                        <!--<TextBlock Text="{Binding Genre, StringFormat=Genre: {0}}" HorizontalAlignment="Center"/>-->
+                        <ListBox ItemsSource="{Binding Services}" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="FloralWhite" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Left"/>
+                                        <Button Margin="5" Width="120" Height="20" Click="Button_Click" HorizontalAlignment="Left" Background="MediumPurple" Foreground="White">Book Appointment</Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

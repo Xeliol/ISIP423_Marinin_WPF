@@ -33,6 +33,8 @@ namespace WpfApp1.Pages
             SortBox.ItemsSource = SortItems;
         }
 
+        List<String> serviceTypes = Core.Context.ServiceTypes.Select(st => st.Name).ToList();
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button clickedButton = sender as Button;
@@ -57,7 +59,6 @@ namespace WpfApp1.Pages
         {
             if (SortBox.SelectedItem != null)
             {
-                //FIXXXXX
                 List<Users> newsource = Core.Context.Users.Where(u => u.TypeID == 2 && Core.Context.Services.Where(s => s.ServiceTypes.Name == SortBox.SelectedItem).Select(s => s.MasterID).Contains(u.UserID)).ToList();
                 MasterListBox.ItemsSource = newsource;
             }
