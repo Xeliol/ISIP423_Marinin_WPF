@@ -31,7 +31,7 @@
                     <StackPanel Height="300" Width="260">
                         <Image Height="120" Width="120" Source="{Binding ImagePath}"/>
                         <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Center"/>
-                        <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="DeepPink" Foreground="White">Master Page</Button>
+                        <Button Margin="5" Width="120" Height="20" Click="MasterButton_Click" Background="DeepPink" Foreground="White">Master Page</Button>
                         <!--<TextBlock Text="{Binding Genre, StringFormat=Genre: {0}}" HorizontalAlignment="Center"/>-->
                         <ListBox ItemsSource="{Binding Services}" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="FloralWhite" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible">
                             <ListBox.ItemTemplate>

@@ -73,5 +73,21 @@ namespace WpfApp1.Pages
         {
             NavigationService.Navigate(new ProductsPage());
         }
+
+        private void MasterButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            ListBoxItem listBoxItem = (ListBoxItem)MasterListBox.ContainerFromElement(clickedButton);
+
+            if (listBoxItem != null)
+            {
+                object dataItem = listBoxItem.Content;
+
+                var mas = dataItem as Users;
+
+                NavigationService.Navigate(new MasterPage(mas));
+            }
+        }
     }
 }

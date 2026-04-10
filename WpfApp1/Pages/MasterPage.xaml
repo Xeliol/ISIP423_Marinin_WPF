@@ -8,7 +8,63 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MasterPage">
 
-    <Grid>
-        
+    <Grid Background="FloralWhite">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Foreground="White" Background="MediumPurple" TextAlignment="Center">Master</TextBlock>
+        <StackPanel x:Name="MoviePanel" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top">
+            <Image Source="{Binding ImagePath}" Width="Auto"/>
+            <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding Phone, StringFormat=Phone: {0}}" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding Email, StringFormat=Email: {0}}" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <TextBlock Text="Appointments" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
+            <ListBox x:Name="SessionListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" Background="FloralWhite">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Height="100">
+                            <TextBlock FontSize="18" FontWeight="Bold" Text="Ticket" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Session.TheaterID, StringFormat=Theater №{0}}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Seat, StringFormat=Seat: №{0}}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Session.Theaters.Rating, StringFormat=Rating: {0}}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Session.Time, StringFormat={}{0:dd MMMM}}" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <TextBlock Text="Orders" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
+            <ListBox x:Name="ProductListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" Background="FloralWhite">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Height="100" Width="400">
+                            <TextBlock FontSize="18" FontWeight="Bold" Text="Ticket" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Session.TheaterID, StringFormat=Theater №{0}}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Seat, StringFormat=Seat: №{0}}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Session.Theaters.Rating, StringFormat=Rating: {0}}" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </StackPanel>
     </Grid>
 </Page>

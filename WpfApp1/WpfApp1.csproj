@@ -246,6 +246,8 @@
     <Resource Include="Images\Miles.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\hinako.png" />
+    <Resource Include="Images\purpleGuy.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

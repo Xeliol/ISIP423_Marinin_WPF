@@ -20,9 +20,11 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class MasterPage : Page
     {
-        public MasterPage()
+        public MasterPage(Users master)
         {
             InitializeComponent();
+
+            this.DataContext = master;
         }
     }
 }

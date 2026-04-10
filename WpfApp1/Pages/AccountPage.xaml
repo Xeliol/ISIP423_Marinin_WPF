@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Foreground="White" Background="MediumPurple" TextAlignment="Center">Account</TextBlock>
         <StackPanel x:Name="MoviePanel" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top">
-            <Image Source="{Binding ImagePath}" Width="250"/>
+            <Image Source="{Binding ImagePath}" Width="Auto"/>
             <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Login, StringFormat=Name: {0}}" HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding Phone, StringFormat=Phone: {0}}" HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding Email, StringFormat=Email: {0}}" HorizontalAlignment="Center"/>
