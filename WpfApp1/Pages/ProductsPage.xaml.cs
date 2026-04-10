@@ -46,7 +46,7 @@ namespace WpfApp1.Pages
             {
                 object dataItem = listBoxItem.Content;
 
-                NavigationService.Navigate(new AppointmentPage());
+                //NavigationService.Navigate(new AppointmentPage());
             }
         }
 

@@ -28,9 +28,9 @@ namespace WpfApp1
             NavigationData.CurrentData = new CurData
             {
                 ID = -1,
-                Login = "Anon"
+                Login = "Anon",
+                Type = 0
             };
-
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

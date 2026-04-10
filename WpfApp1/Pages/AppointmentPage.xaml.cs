@@ -20,9 +20,20 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class AppointmentPage : Page
     {
-        public AppointmentPage()
+        Services service;
+        public AppointmentPage(Services srv)
         {
+            service = srv;
+            this.DataContext = srv;
             InitializeComponent();
+        }
+
+        
+
+        private void MasterButton_Click(object sender, RoutedEventArgs e)
+        {
+            Users master = Core.Context.Users.FirstOrDefault(u => u.UserID == service.MasterID);
+            if(master != null)  NavigationService.Navigate(new MasterPage(master));
         }
     }
 }

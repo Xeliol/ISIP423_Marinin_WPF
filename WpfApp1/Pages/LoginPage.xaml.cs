@@ -36,6 +36,7 @@ namespace WpfApp1.Pages
                 cur.Login = log_user.First().Login;
                 cur.Password = log_user.First().Password;
                 cur.ID = log_user.First().UserID;
+                cur.Type = log_user.First().TypeID;
 
                 MessageBox.Show("Logged in!");
                 NavigationService.Navigate(new StartPage());

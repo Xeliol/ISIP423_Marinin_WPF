@@ -25,6 +25,17 @@ namespace WpfApp1.Pages
             InitializeComponent();
 
             this.DataContext = master;
+
+            ServicesListBox.ItemsSource = master.Services.ToList();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            var srv = clickedButton.DataContext as Services;
+
+            NavigationService.Navigate(new AppointmentPage(srv));
         }
     }
 }
