@@ -27,6 +27,7 @@ namespace WpfApp1
         public int Sale { get; set; }
         public int ManufacturerID { get; set; }
         public int TypeID { get; set; }
+        public string ImagePath { get; set; }
     
         public virtual Manufacturers Manufacturers { get; set; }
         public virtual ProductTypes ProductTypes { get; set; }

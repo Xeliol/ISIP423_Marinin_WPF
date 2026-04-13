@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="88e42748db3a4eb785c489b97b9531fb" Name="Diagram1">
+      <Diagram DiagramId="a8e6f2611ce54d22b2ef34cbd89df389" Name="Diagram1">
         <EntityTypeShape EntityType="Marinin_CosmeticsModel.Appointments" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Marinin_CosmeticsModel.Manufacturers" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Marinin_CosmeticsModel.Orders" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Products" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Products" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Marinin_CosmeticsModel.ProductsOrder" Width="1.5" PointX="7.5" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Marinin_CosmeticsModel.ProductTypes" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="Marinin_CosmeticsModel.Services" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />

@@ -39,6 +39,7 @@
           <ScalarProperty Name="Sale" ColumnName="Sale" />
           <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
           <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

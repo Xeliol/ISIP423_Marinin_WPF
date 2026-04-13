@@ -41,6 +41,7 @@
           <Property Name="Sale" Type="int" Nullable="false" />
           <Property Name="ManufacturerID" Type="int" Nullable="false" />
           <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="ProductsOrder">
           <Key>
@@ -324,6 +325,7 @@
           <Property Name="Sale" Type="Int32" Nullable="false" />
           <Property Name="ManufacturerID" Type="Int32" Nullable="false" />
           <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Manufacturers" Relationship="Self.FK_Products_Manufacturers" FromRole="Products" ToRole="Manufacturers" />
           <NavigationProperty Name="ProductTypes" Relationship="Self.FK_Products_ProductTypes" FromRole="Products" ToRole="ProductTypes" />
           <NavigationProperty Name="ProductsOrder" Relationship="Self.FK_ProductsOrder_Products" FromRole="Products" ToRole="ProductsOrder" />
@@ -620,6 +622,7 @@
                 <ScalarProperty Name="Sale" ColumnName="Sale" />
                 <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
                 <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

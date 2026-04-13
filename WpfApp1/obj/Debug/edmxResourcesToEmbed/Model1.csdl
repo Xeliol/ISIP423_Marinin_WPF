@@ -41,6 +41,7 @@
     <Property Name="Sale" Type="Int32" Nullable="false" />
     <Property Name="ManufacturerID" Type="Int32" Nullable="false" />
     <Property Name="TypeID" Type="Int32" Nullable="false" />
+    <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Manufacturers" Relationship="Self.FK_Products_Manufacturers" FromRole="Products" ToRole="Manufacturers" />
     <NavigationProperty Name="ProductTypes" Relationship="Self.FK_Products_ProductTypes" FromRole="Products" ToRole="ProductTypes" />
     <NavigationProperty Name="ProductsOrder" Relationship="Self.FK_ProductsOrder_Products" FromRole="Products" ToRole="ProductsOrder" />

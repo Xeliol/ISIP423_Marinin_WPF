@@ -28,9 +28,21 @@ namespace WpfApp1.Pages
 
             ProductListBox.ItemsSource = products;
 
-            TypeSortBox.ItemsSource = Core.Context.ProductTypes.Select(pt => pt.Name).ToList();
+            List<string> TypeSorts = Core.Context.ProductTypes.Select(pt => pt.Name).ToList();
 
-            ManufacturerSortBox.ItemsSource = Core.Context.Manufacturers.Select(pt => pt.Name).ToList();
+            List<string> ManufacturerSorts = Core.Context.Manufacturers.Select(pt => pt.Name).ToList();
+
+            TypeSorts.Insert(0, "None");
+
+            ManufacturerSorts.Insert(0, "None");
+
+            TypeSortBox.ItemsSource = TypeSorts;
+
+            ManufacturerSortBox.ItemsSource = ManufacturerSorts;
+
+            TypeSortBox.SelectedIndex = 0;
+
+            ManufacturerSortBox.SelectedIndex = 0;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -53,31 +65,19 @@ namespace WpfApp1.Pages
             else NavigationService.Navigate(new AccountPage());
         }
 
-        private void SortBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (TypeSortBox.SelectedItem != null)
-            {
-                switch (TypeSortBox.SelectedItem.ToString())
-                {
-                    case "Genre":
-                        //MasterListBox.ItemsSource = Core.Context.Movies.ToList().OrderBy(p => p.Genre);
-                        break;
-                    case "Age Rating":
-                        //MasterListBox.ItemsSource = Core.Context.Movies.ToList().OrderBy(p => p.AgeRating);
-                        break;
-                    case "Name":
-                        //MasterListBox.ItemsSource = Core.Context.Movies.ToList().OrderBy(p => p.Name);
-                        break;
-                    case "Rating":
-                        //MasterListBox.ItemsSource = Core.Context.Movies.ToList().OrderBy(p => p.Rating);
-                        break;
-                }
-            }
-        }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //MasterListBox.ItemsSource = Core.Context.Movies.ToList().Where(p => p.Name.ToLower().Contains(SearchBox.Text.ToLower()));
+            SortProducts();
+            List<Products> newsrc = new List<Products>();
+            foreach(Products p in ProductListBox.Items)
+            {
+                newsrc.Add(p);
+            }
+            if (SearchBox.Text.Length != 0)
+            {
+                ProductListBox.ItemsSource = newsrc.Where(p => p.Name.ToLower().Contains(SearchBox.Text.ToLower()));
+            }
+            else ProductListBox.ItemsSource = newsrc;
         }
 
         private void CartButton_Click(object sender, RoutedEventArgs e)
@@ -89,6 +89,37 @@ namespace WpfApp1.Pages
             else
             {
                 MessageBox.Show("Only registered Clients can use the cart.");
+            }
+        }
+
+        private void TypeSortBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SortProducts();
+        }
+
+        private void ManufacturerSortBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SortProducts();
+        }
+
+        private void SortProducts()
+        {
+            List<Products> newsource = Core.Context.Products.ToList();
+            if (TypeSortBox.SelectedIndex == 0 && ManufacturerSortBox.SelectedIndex == 0)
+            {
+                ProductListBox.ItemsSource = Core.Context.Products.ToList();
+            }
+            else if (TypeSortBox.SelectedIndex != 0 && ManufacturerSortBox.SelectedIndex == 0)
+            {
+                ProductListBox.ItemsSource = Core.Context.Products.Where(u => u.ProductTypes.Name == TypeSortBox.SelectedItem).ToList();
+            }
+            else if (TypeSortBox.SelectedIndex == 0 && ManufacturerSortBox.SelectedIndex != 0)
+            {
+                ProductListBox.ItemsSource = Core.Context.Products.Where(u => u.Manufacturers.Name == ManufacturerSortBox.SelectedItem).ToList();
+            }
+            else if (TypeSortBox.SelectedIndex != 0 && ManufacturerSortBox.SelectedIndex != 0)
+            {
+                ProductListBox.ItemsSource = Core.Context.Products.Where(u => u.Manufacturers.Name == ManufacturerSortBox.SelectedItem && u.ProductTypes.Name == TypeSortBox.SelectedItem).ToList();
             }
         }
     }

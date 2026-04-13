@@ -36,6 +36,7 @@
     <Property Name="Sale" Type="int" Nullable="false" />
     <Property Name="ManufacturerID" Type="int" Nullable="false" />
     <Property Name="TypeID" Type="int" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="ProductsOrder">
     <Key>

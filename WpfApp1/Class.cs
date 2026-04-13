@@ -16,4 +16,16 @@ namespace WpfApp1
         public string Password { get; set; }
         public int Type { get; set; }
     }
+
+    public partial class Products
+    { 
+        public double FinalPrice
+        {
+            get
+            {
+                double pr = Price * (100 - Sale) / 100;
+                return pr;
+            }
+        }
+    }
 }

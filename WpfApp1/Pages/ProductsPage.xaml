@@ -16,8 +16,8 @@
         <!--Menu-->
         <TextBlock FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White"></TextBlock>
         <StackPanel Margin="140 0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <ComboBox Margin="5" Width="100" Height="20" x:Name="TypeSortBox" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="SortBox_SelectionChanged"></ComboBox>
-            <ComboBox Margin="5" Width="100" Height="20" x:Name="ManufacturerSortBox" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="SortBox_SelectionChanged"></ComboBox>
+            <ComboBox Margin="5" Width="100" Height="20" x:Name="TypeSortBox" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="TypeSortBox_SelectionChanged"></ComboBox>
+            <ComboBox Margin="5" Width="100" Height="20" x:Name="ManufacturerSortBox" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="ManufacturerSortBox_SelectionChanged"></ComboBox>
             <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Width="80" Height="20" Click="CartButton_Click" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White">Cart 🛒</Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
@@ -29,9 +29,25 @@
         <ListBox x:Name="ProductListBox" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="FloralWhite">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Height="240" Width="220">
+                    <StackPanel Width="220">
                         <Image Height="120" Width="120" Source="{Binding ImagePath}"/>
                         <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Center"/>
+                        <TextBlock FontStyle="Italic" Text="{Binding Description}" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center"/>
+                        <TextBlock Text="{Binding ProductTypes.Name, StringFormat=Type: {0}}" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Manufacturers.Name, StringFormat=Manufacturer: {0}}" HorizontalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Foreground="Red">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Text" Value="{Binding Price, StringFormat={}{0} Rub.}"/>
+                                    <Setter Property="TextDecorations" Value="Strikethrough"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Sale}" Value="0">
+                                            <Setter Property="Visibility" Value="Hidden"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                         <TextBlock HorizontalAlignment="Center">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
@@ -39,7 +55,7 @@
                                         <Setter.Value>
                                             <MultiBinding StringFormat="Sale: {0}% Price: {1} Rub.">
                                                 <Binding Path="Sale" />
-                                                <Binding Path="Price" />
+                                                <Binding Path="FinalPrice" />
                                             </MultiBinding>
                                         </Setter.Value>
                                     </Setter>
@@ -51,7 +67,7 @@
                                 </Style>
                             </TextBlock.Style>
                         </TextBlock>
-                        <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="MediumPurple" Foreground="White">Buy a Ticket</Button>
+                        <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="MediumPurple" Foreground="White">Purchase</Button>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
