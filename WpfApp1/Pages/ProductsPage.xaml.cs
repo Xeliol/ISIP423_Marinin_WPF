@@ -28,12 +28,9 @@ namespace WpfApp1.Pages
 
             ProductListBox.ItemsSource = products;
 
-            List<string> SortItems = new List<string>()
-            {
-                "Genre", "Age Rating", "Name", "Rating"
-            };
+            TypeSortBox.ItemsSource = Core.Context.ProductTypes.Select(pt => pt.Name).ToList();
 
-            SortBox.ItemsSource = SortItems;
+            ManufacturerSortBox.ItemsSource = Core.Context.Manufacturers.Select(pt => pt.Name).ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -58,9 +55,9 @@ namespace WpfApp1.Pages
 
         private void SortBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (SortBox.SelectedItem != null)
+            if (TypeSortBox.SelectedItem != null)
             {
-                switch (SortBox.SelectedItem.ToString())
+                switch (TypeSortBox.SelectedItem.ToString())
                 {
                     case "Genre":
                         //MasterListBox.ItemsSource = Core.Context.Movies.ToList().OrderBy(p => p.Genre);
@@ -81,6 +78,18 @@ namespace WpfApp1.Pages
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             //MasterListBox.ItemsSource = Core.Context.Movies.ToList().Where(p => p.Name.ToLower().Contains(SearchBox.Text.ToLower()));
+        }
+
+        private void CartButton_Click(object sender, RoutedEventArgs e)
+        {
+            if((NavigationData.CurrentData as CurData).Type == 1)
+            {
+                NavigationService.Navigate(new CartPage());
+            }
+            else
+            {
+                MessageBox.Show("Only registered Clients can use the cart.");
+            }
         }
     }
 }

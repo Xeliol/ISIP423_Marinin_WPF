@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Pages;
 
 namespace WpfApp1
 {
@@ -31,6 +32,9 @@ namespace WpfApp1
                 Login = "Anon",
                 Type = 0
             };
+
+            //AccountButton.Content = "Log In";
+            //AccountButton.Click += AccountButton_Click;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -43,6 +47,44 @@ namespace WpfApp1
         {
             Page currentPage = MainFrame.Content as Page;
             if (MainFrame.NavigationService.CanGoBack) MainFrame.NavigationService.Navigate(new Pages.StartPage());
+        }
+
+        private void AccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            if ((NavigationData.CurrentData as CurData).ID == -1) MainFrame.NavigationService.Navigate(new LoginPage());
+            else MainFrame.NavigationService.Navigate(new AccountPage());
+        }
+
+        private void MasterAccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            //TEMPORARY!!!
+
+            CurData user = NavigationData.CurrentData as CurData;
+            Users mast = Core.Context.Users.First(u => u.UserID == user.ID) as Users;
+            MainFrame.NavigationService.Navigate(new MasterPage(mast));
+
+            //TEMPORARY!!!
+        }
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            CurData user = NavigationData.CurrentData as CurData;
+
+            switch (user.Type)
+            {
+                case 0:
+                    AccountButton.Content = "Log In";
+                    AccountButton.Click += AccountButton_Click;
+                    break;
+                case 1:
+                    AccountButton.Content = "My Account";
+                    AccountButton.Click += AccountButton_Click;
+                    break;
+                case 2:
+                    AccountButton.Content = "My Profile";
+                    AccountButton.Click += MasterAccountButton_Click;
+                    break;
+            }
         }
     }
 

@@ -3,7 +3,6 @@ C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\MainWi
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AccountPage.g.cs
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AdminPage.g.cs
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AppointmentInfoPage.g.cs
-C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AppointmentListPage.g.cs
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AppointmentPage.g.cs
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\CartPage.g.cs
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\ManagerPage.g.cs
@@ -22,7 +21,6 @@ C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\MainWi
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AccountPage.baml
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AdminPage.baml
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AppointmentInfoPage.baml
-C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AppointmentListPage.baml
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AppointmentPage.baml
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\CartPage.baml
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\ManagerPage.baml
@@ -42,3 +40,5 @@ C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\WpfApp
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\bin\Debug\EntityFramework.dll
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\WpfApp1.csproj.Up2Date
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AppointmentConfirmationPage.g.cs
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\Pages\AppointmentConfirmationPage.baml

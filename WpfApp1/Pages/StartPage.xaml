@@ -28,16 +28,17 @@
         <ListBox x:Name="MasterListBox" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="FloralWhite">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Height="300" Width="260">
+                    <StackPanel Width="260">
                         <Image Height="120" Width="120" Source="{Binding ImagePath}"/>
                         <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Center"/>
                         <Button Margin="5" Width="120" Height="20" Click="MasterButton_Click" Background="DeepPink" Foreground="White">Master Page</Button>
                         <!--<TextBlock Text="{Binding Genre, StringFormat=Genre: {0}}" HorizontalAlignment="Center"/>-->
-                        <ListBox x:Name="ServiceListBox" ItemsSource="{Binding Services}" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="FloralWhite" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                        <ListBox x:Name="ServiceListBox" Height="160" ItemsSource="{Binding Services}" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="FloralWhite" ScrollViewer.VerticalScrollBarVisibility="Visible">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel HorizontalAlignment="Center">
                                         <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Left"/>
+                                        <TextBlock FontSize="12" Text="{Binding Price, StringFormat={}{0} Rub.}" HorizontalAlignment="Left"/>
                                         <Button Margin="5" Width="120" Height="20" Click="Button_Click" HorizontalAlignment="Left" Background="MediumPurple" Foreground="White">Book Appointment</Button>
                                     </StackPanel>
                                 </DataTemplate>

@@ -24,24 +24,6 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
 
-            CurData user = NavigationData.CurrentData as CurData;
-
-            switch(user.Type)
-            {
-                case 0:
-                    AccountButton.Content = "Log In";
-                    AccountButton.Click += AccountButton_Click;
-                    break;
-                case 1:
-                    AccountButton.Content = "My Account";
-                    AccountButton.Click += AccountButton_Click;
-                    break;
-                case 2:
-                    AccountButton.Content = "My Profile";
-                    AccountButton.Click += MasterAccountButton_Click;
-                    break;
-            }
-
             List<Users> masters = Core.Context.Users.Where(u => u.TypeID == 2).ToList();
 
             MasterListBox.ItemsSource = masters;
@@ -66,28 +48,9 @@ namespace WpfApp1.Pages
 
                 if (srv != null)
                 {
-
                     NavigationService.Navigate(new AppointmentPage(srv));
-
                 }
             }
-        }
-
-        private void AccountButton_Click(object sender, RoutedEventArgs e)
-        {
-            if ((NavigationData.CurrentData as CurData).ID == -1) NavigationService.Navigate(new LoginPage());
-            else NavigationService.Navigate(new AccountPage());
-        }
-
-        private void MasterAccountButton_Click(object sender, RoutedEventArgs e)
-        {
-            //TEMPORARY!!!
-
-            CurData user = NavigationData.CurrentData as CurData;
-            Users mast = Core.Context.Users.First(u => u.UserID == user.ID) as Users;
-            NavigationService.Navigate(new MasterPage(mast));
-            
-            //TEMPORARY!!!
         }
 
         private void SortBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

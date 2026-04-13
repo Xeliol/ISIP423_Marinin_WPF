@@ -14,9 +14,11 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <!--Menu-->
-        <TextBlock FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White">Welcome</TextBlock>
+        <TextBlock FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White"></TextBlock>
         <StackPanel Margin="140 0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <ComboBox Margin="5" Width="100" Height="20" x:Name="SortBox" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="SortBox_SelectionChanged"></ComboBox>
+            <ComboBox Margin="5" Width="100" Height="20" x:Name="TypeSortBox" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="SortBox_SelectionChanged"></ComboBox>
+            <ComboBox Margin="5" Width="100" Height="20" x:Name="ManufacturerSortBox" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="SortBox_SelectionChanged"></ComboBox>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Width="80" Height="20" Click="CartButton_Click" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White">Cart 🛒</Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
             <TextBox x:Name="SearchBox" Margin="5" Width="200" Height="20" TextChanged="TextBox_TextChanged"></TextBox>
@@ -30,9 +32,25 @@
                     <StackPanel Height="240" Width="220">
                         <Image Height="120" Width="120" Source="{Binding ImagePath}"/>
                         <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Center"/>
-                        <TextBlock Text="{Binding Genre, StringFormat=Genre: {0}}" HorizontalAlignment="Center"/>
-                        <TextBlock Text="{Binding Rating, StringFormat=Rating: {0}}" HorizontalAlignment="Center"/>
-                        <TextBlock Text="{Binding Rating, StringFormat=Age Rating: {0}}" HorizontalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Text">
+                                        <Setter.Value>
+                                            <MultiBinding StringFormat="Sale: {0}% Price: {1} Rub.">
+                                                <Binding Path="Sale" />
+                                                <Binding Path="Price" />
+                                            </MultiBinding>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Sale}" Value="0">
+                                            <Setter Property="Text" Value="{Binding Price, StringFormat={}{0} Rub.}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                         <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="MediumPurple" Foreground="White">Buy a Ticket</Button>
                     </StackPanel>
                 </DataTemplate>

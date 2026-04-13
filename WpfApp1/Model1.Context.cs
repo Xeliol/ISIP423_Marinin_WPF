@@ -26,9 +26,11 @@ namespace WpfApp1
         }
     
         public virtual DbSet<Appointments> Appointments { get; set; }
+        public virtual DbSet<Manufacturers> Manufacturers { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<ProductsOrder> ProductsOrder { get; set; }
+        public virtual DbSet<ProductTypes> ProductTypes { get; set; }
         public virtual DbSet<Services> Services { get; set; }
         public virtual DbSet<ServiceTypes> ServiceTypes { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }

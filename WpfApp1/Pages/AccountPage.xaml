@@ -31,14 +31,18 @@
             <ListBox x:Name="SessionListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" Background="FloralWhite">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Height="100">
-                                <TextBlock FontSize="18" FontWeight="Bold" Text="Ticket" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Session.TheaterID, StringFormat=Theater №{0}}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Seat, StringFormat=Seat: №{0}}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Session.Theaters.Rating, StringFormat=Rating: {0}}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Session.Time, StringFormat={}{0:dd MMMM}}" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" Height="100" HorizontalAlignment="Center">
+                            <StackPanel Margin="30 0">
+                                <TextBlock Text="{Binding Services.Name}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Services.Description}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Services.Price, StringFormat={}{0} Rub.}" HorizontalAlignment="Center"/>
                             </StackPanel>
-                        </DataTemplate>
+                            <StackPanel Margin="30 0">
+                                <TextBlock Text="{Binding Services.Users.Name}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                <Image Source="{Binding Services.Users.ImagePath}" Width="90"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
                     </ListBox.ItemTemplate>
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
