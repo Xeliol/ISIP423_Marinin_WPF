@@ -92,6 +92,9 @@
     <Compile Include="Pages\AppointmentConfirmationPage.xaml.cs">
       <DependentUpon>AppointmentConfirmationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MasterAccountPage.xaml.cs">
+      <DependentUpon>MasterAccountPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Products.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ManagerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MasterAccountPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

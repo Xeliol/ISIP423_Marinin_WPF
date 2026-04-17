@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Debug\
+C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\obj\Release\
 WpfApp1
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\App.xaml
 141096587068
 2-1957146511
@@ -16,5 +16,5 @@ C:\Users\234842\source\repos\Xeliol\ISIP423_Marinin_WPF\WpfApp1\App.xaml
 171820818900
 MainWindow.xaml;Pages\AccountPage.xaml;Pages\AdminPage.xaml;Pages\AppointmentConfirmationPage.xaml;Pages\AppointmentInfoPage.xaml;Pages\AppointmentPage.xaml;Pages\CartPage.xaml;Pages\LoginPage.xaml;Pages\ManagerPage.xaml;Pages\MasterAccountPage.xaml;Pages\MasterPage.xaml;Pages\ProductsPage.xaml;Pages\RegisterPage.xaml;Pages\StartPage.xaml;
 
-False
+True
 

@@ -51,19 +51,14 @@ namespace WpfApp1
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)
         {
-            if ((NavigationData.CurrentData as CurData).ID == -1) MainFrame.NavigationService.Navigate(new LoginPage());
-            else MainFrame.NavigationService.Navigate(new AccountPage());
+            if (AccountButton.Content == "Log In") MainFrame.NavigationService.Navigate(new LoginPage());
+            else if (AccountButton.Content == "My Account") MainFrame.NavigationService.Navigate(new AccountPage());
+            else if (AccountButton.Content == "My Profile") MainFrame.NavigationService.Navigate(new MasterAccountPage());
         }
 
         private void MasterAccountButton_Click(object sender, RoutedEventArgs e)
         {
-            //TEMPORARY!!!
-
-            CurData user = NavigationData.CurrentData as CurData;
-            Users mast = Core.Context.Users.First(u => u.UserID == user.ID) as Users;
-            MainFrame.NavigationService.Navigate(new MasterPage(mast));
-
-            //TEMPORARY!!!
+            MainFrame.NavigationService.Navigate(new MasterAccountPage());
         }
 
         private void MainFrame_Navigated(object sender, NavigationEventArgs e)
@@ -74,15 +69,12 @@ namespace WpfApp1
             {
                 case 0:
                     AccountButton.Content = "Log In";
-                    AccountButton.Click += AccountButton_Click;
                     break;
                 case 1:
                     AccountButton.Content = "My Account";
-                    AccountButton.Click += AccountButton_Click;
                     break;
                 case 2:
                     AccountButton.Content = "My Profile";
-                    AccountButton.Click += MasterAccountButton_Click;
                     break;
             }
         }

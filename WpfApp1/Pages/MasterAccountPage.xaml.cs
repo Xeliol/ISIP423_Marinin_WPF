@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfApp1.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AccountPage.xaml
+    /// Логика взаимодействия для MasterAccountPage.xaml
     /// </summary>
-    public partial class AccountPage : Page
+    public partial class MasterAccountPage : Page
     {
-        public AccountPage()
+        public MasterAccountPage()
         {
             InitializeComponent();
 
@@ -29,7 +29,9 @@ namespace WpfApp1.Pages
 
             this.DataContext = user;
 
-            SessionListBox.ItemsSource = Core.Context.Appointments.Where(t => t.UserID == user.UserID).ToList();
+            List<int> services = user.Services.Select(s => s.ServiceID).ToList();
+            SessionListBox.ItemsSource = Core.Context.Appointments.Where(a => services.Contains(a.Services.ServiceID)).ToList();
+            ServiceListBox.ItemsSource = user.Services.ToList();
         }
 
         private void LogOutButton_Click(object sender, RoutedEventArgs e)
