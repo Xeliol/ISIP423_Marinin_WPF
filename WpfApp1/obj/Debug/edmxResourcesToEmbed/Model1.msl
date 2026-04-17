@@ -12,6 +12,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Cart">
+      <EntityTypeMapping TypeName="Marinin_CosmeticsModel.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="CartID" ColumnName="CartID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Manufacturers">
       <EntityTypeMapping TypeName="Marinin_CosmeticsModel.Manufacturers">
         <MappingFragment StoreEntitySet="Manufacturers">
@@ -40,6 +48,15 @@
           <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
           <ScalarProperty Name="TypeID" ColumnName="TypeID" />
           <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductsCart">
+      <EntityTypeMapping TypeName="Marinin_CosmeticsModel.ProductsCart">
+        <MappingFragment StoreEntitySet="ProductsCart">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CartID" ColumnName="CartID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -12,6 +12,15 @@
     <NavigationProperty Name="Services" Relationship="Self.FK_Appointments_Services" FromRole="Appointments" ToRole="Services" />
     <NavigationProperty Name="Users" Relationship="Self.FK_Appointments_Users" FromRole="Appointments" ToRole="Users" />
   </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CartID" />
+    </Key>
+    <Property Name="CartID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Cart_Users" FromRole="Cart" ToRole="Users" />
+    <NavigationProperty Name="ProductsCart" Relationship="Self.FK_ProductsCart_Cart" FromRole="Cart" ToRole="ProductsCart" />
+  </EntityType>
   <EntityType Name="Manufacturers">
     <Key>
       <PropertyRef Name="ManufacturerID" />
@@ -41,10 +50,21 @@
     <Property Name="Sale" Type="Int32" Nullable="false" />
     <Property Name="ManufacturerID" Type="Int32" Nullable="false" />
     <Property Name="TypeID" Type="Int32" Nullable="false" />
-    <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Manufacturers" Relationship="Self.FK_Products_Manufacturers" FromRole="Products" ToRole="Manufacturers" />
     <NavigationProperty Name="ProductTypes" Relationship="Self.FK_Products_ProductTypes" FromRole="Products" ToRole="ProductTypes" />
+    <NavigationProperty Name="ProductsCart" Relationship="Self.FK_ProductsCart_Products" FromRole="Products" ToRole="ProductsCart" />
     <NavigationProperty Name="ProductsOrder" Relationship="Self.FK_ProductsOrder_Products" FromRole="Products" ToRole="ProductsOrder" />
+  </EntityType>
+  <EntityType Name="ProductsCart">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="CartID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cart" Relationship="Self.FK_ProductsCart_Cart" FromRole="ProductsCart" ToRole="Cart" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_ProductsCart_Products" FromRole="ProductsCart" ToRole="Products" />
   </EntityType>
   <EntityType Name="ProductsOrder">
     <Key>
@@ -109,6 +129,7 @@
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointments_Users" FromRole="Users" ToRole="Appointments" />
+    <NavigationProperty Name="Cart" Relationship="Self.FK_Cart_Users" FromRole="Users" ToRole="Cart" />
     <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Users" FromRole="Users" ToRole="Orders" />
     <NavigationProperty Name="Services" Relationship="Self.FK_Services_Users" FromRole="Users" ToRole="Services" />
     <NavigationProperty Name="UserType" Relationship="Self.FK_Users_UserType" FromRole="Users" ToRole="UserType" />
@@ -142,6 +163,30 @@
       </Principal>
       <Dependent Role="Appointments">
         <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductsCart_Cart">
+    <End Role="Cart" Type="Self.Cart" Multiplicity="1" />
+    <End Role="ProductsCart" Type="Self.ProductsCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cart">
+        <PropertyRef Name="CartID" />
+      </Principal>
+      <Dependent Role="ProductsCart">
+        <PropertyRef Name="CartID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -190,6 +235,18 @@
       </Principal>
       <Dependent Role="Products">
         <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductsCart_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="ProductsCart" Type="Self.ProductsCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductsCart">
+        <PropertyRef Name="ProductID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -243,9 +300,11 @@
   </Association>
   <EntityContainer Name="Marinin_CosmeticsEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Appointments" EntityType="Self.Appointments" />
+    <EntitySet Name="Cart" EntityType="Self.Cart" />
     <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" />
     <EntitySet Name="Orders" EntityType="Self.Orders" />
     <EntitySet Name="Products" EntityType="Self.Products" />
+    <EntitySet Name="ProductsCart" EntityType="Self.ProductsCart" />
     <EntitySet Name="ProductsOrder" EntityType="Self.ProductsOrder" />
     <EntitySet Name="ProductTypes" EntityType="Self.ProductTypes" />
     <EntitySet Name="Services" EntityType="Self.Services" />
@@ -260,6 +319,14 @@
     <AssociationSet Name="FK_Appointments_Users" Association="Self.FK_Appointments_Users">
       <End Role="Users" EntitySet="Users" />
       <End Role="Appointments" EntitySet="Appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_Users" Association="Self.FK_Cart_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductsCart_Cart" Association="Self.FK_ProductsCart_Cart">
+      <End Role="Cart" EntitySet="Cart" />
+      <End Role="ProductsCart" EntitySet="ProductsCart" />
     </AssociationSet>
     <AssociationSet Name="FK_Products_Manufacturers" Association="Self.FK_Products_Manufacturers">
       <End Role="Manufacturers" EntitySet="Manufacturers" />
@@ -276,6 +343,10 @@
     <AssociationSet Name="FK_Products_ProductTypes" Association="Self.FK_Products_ProductTypes">
       <End Role="ProductTypes" EntitySet="ProductTypes" />
       <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductsCart_Products" Association="Self.FK_ProductsCart_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductsCart" EntitySet="ProductsCart" />
     </AssociationSet>
     <AssociationSet Name="FK_ProductsOrder_Products" Association="Self.FK_ProductsOrder_Products">
       <End Role="Products" EntitySet="Products" />

@@ -12,29 +12,19 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class Products
+    public partial class Cart
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Products()
+        public Cart()
         {
             this.ProductsCart = new HashSet<ProductsCart>();
-            this.ProductsOrder = new HashSet<ProductsOrder>();
         }
     
-        public int ProductID { get; set; }
-        public double Price { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public int Sale { get; set; }
-        public int ManufacturerID { get; set; }
-        public int TypeID { get; set; }
-        public string ImagePath { get; set; }
+        public int CartID { get; set; }
+        public int UserID { get; set; }
     
-        public virtual Manufacturers Manufacturers { get; set; }
-        public virtual ProductTypes ProductTypes { get; set; }
+        public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductsCart> ProductsCart { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductsOrder> ProductsOrder { get; set; }
     }
 }

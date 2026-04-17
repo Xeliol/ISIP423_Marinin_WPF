@@ -20,6 +20,7 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class ProductsPage : Page
     {
+        CurData user = NavigationData.CurrentData as CurData;
         public ProductsPage()
         {
             InitializeComponent();
@@ -47,16 +48,29 @@ namespace WpfApp1.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Button clickedButton = sender as Button;
-
-            ListBoxItem listBoxItem = (ListBoxItem)ProductListBox.ContainerFromElement(clickedButton);
-
-            if (listBoxItem != null)
+            if ((NavigationData.CurrentData as CurData).Type == 1)
             {
-                object dataItem = listBoxItem.Content;
+                Button clickedButton = sender as Button;
 
-                //NavigationService.Navigate(new AppointmentPage());
+                ListBoxItem listBoxItem = (ListBoxItem)ProductListBox.ContainerFromElement(clickedButton);
+
+                if (listBoxItem != null)
+                {
+                    Products dataItem = listBoxItem.Content as Products;
+
+                    if (Core.Context.Cart.Where(c => c.UserID == user.ID).Count() == 0)
+                    {
+                        Core.Context.Cart.Add(new Cart { CartID = Core.Context.Cart.Count() + 1, UserID = user.ID });
+                        Core.Context.SaveChanges();
+                    }
+
+                    Core.Context.ProductsCart.Add(new ProductsCart { ID = Core.Context.ProductsCart.Count() + 1, CartID = Core.Context.Cart.Where(c => c.UserID == user.ID).First().CartID, ProductID = dataItem.ProductID });
+
+                    Core.Context.SaveChanges();
+                }
             }
+            else
+                MessageBox.Show("Only registered Clients can use the cart.");
         }
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)

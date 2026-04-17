@@ -37,7 +37,8 @@
                                 <TextBlock Text="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}" HorizontalAlignment="Center" FontSize="8" Foreground="Gray"/>
                             </StackPanel>
                             <TextBlock Text="{Binding Date, StringFormat={}{0:HH:mm}}" Margin="10" HorizontalAlignment="Center" FontSize="22"/>
-                            <TextBlock Text="{Binding Users.Name}" Margin="10" HorizontalAlignment="Center" FontSize="22"/>
+                            <TextBlock Text="{Binding Users.Name}" Margin="10" HorizontalAlignment="Center"/>
+                            <Button Width="100" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White" Click="FinishButton_Click">Finish</Button>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -53,11 +54,14 @@
             <ListBox x:Name="ServiceListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" Background="FloralWhite">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Height="100" Width="400">
-                            <TextBlock FontSize="18" FontWeight="Bold" Text="Ticket" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding Session.TheaterID, StringFormat=Theater №{0}}" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding Seat, StringFormat=Seat: №{0}}" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding Session.Theaters.Rating, StringFormat=Rating: {0}}" HorizontalAlignment="Center"/>
+                        <StackPanel Height="Auto" Width="Auto" Orientation="Horizontal">
+                            <StackPanel Height="Auto" Width="Auto" Margin="10">
+                                <TextBlock Text="{Binding Name}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Description}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Price, StringFormat={}{0} Rub.}" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                            <Button Margin="10" Width="100" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White" Click="EditButton_Click">Edit</Button>
+                            <Button Margin="10" Width="50" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Foreground="White" Background="Red" Click="RemoveButton_Click">x</Button>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

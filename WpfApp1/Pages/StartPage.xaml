@@ -39,6 +39,7 @@
                                     <StackPanel HorizontalAlignment="Center">
                                         <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Left"/>
                                         <TextBlock FontSize="12" Text="{Binding Price, StringFormat={}{0} Rub.}" HorizontalAlignment="Left"/>
+                                        <TextBlock FontSize="12" Text="{Binding ServiceTypes.Name}" HorizontalAlignment="Left"/>
                                         <Button Margin="5" Width="120" Height="20" Click="Button_Click" HorizontalAlignment="Left" Background="MediumPurple" Foreground="White">Book Appointment</Button>
                                     </StackPanel>
                                 </DataTemplate>

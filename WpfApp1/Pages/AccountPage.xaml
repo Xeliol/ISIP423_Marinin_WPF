@@ -41,6 +41,11 @@
                                 <TextBlock Text="{Binding Services.Users.Name}" FontWeight="Bold" HorizontalAlignment="Center"/>
                                 <Image Source="{Binding Services.Users.ImagePath}" Width="90"/>
                             </StackPanel>
+                            <StackPanel Height="Auto" Width="Auto" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Date, StringFormat={}{0:d MMMM}}" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}" HorizontalAlignment="Center" FontSize="8" Foreground="Gray"/>
+                            </StackPanel>
+                            <TextBlock Text="{Binding Date, StringFormat={}{0:HH:mm}}" Margin="10" VerticalAlignment="Center" FontSize="22"/>
                         </StackPanel>
                     </DataTemplate>
                     </ListBox.ItemTemplate>

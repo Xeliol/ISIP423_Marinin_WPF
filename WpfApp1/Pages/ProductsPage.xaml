@@ -67,7 +67,7 @@
                                 </Style>
                             </TextBlock.Style>
                         </TextBlock>
-                        <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="MediumPurple" Foreground="White">Purchase</Button>
+                        <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="MediumPurple" Foreground="White">Add to Cart</Button>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
