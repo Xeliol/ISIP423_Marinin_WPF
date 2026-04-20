@@ -24,5 +24,17 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
+
+        private void LogOutButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationData.CurrentData = new CurData
+            {
+                ID = -1,
+                Login = "Anon",
+                Type = 0
+            };
+            MessageBox.Show("Logged Out.");
+            NavigationService.Navigate(new StartPage());
+        }
     }
 }
