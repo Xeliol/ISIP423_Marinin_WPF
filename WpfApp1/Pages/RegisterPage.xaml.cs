@@ -78,7 +78,8 @@ namespace WpfApp1.Pages
                     UserID = Core.Context.Users.ToList().Count() + 1,
                     Login = LoginBox.Text,
                     Password = PassBox1.Text,
-                    Phone = PhoneBox.Text
+                    Phone = PhoneBox.Text,
+                    TypeID = 1,
                 };
                 if (IsValidEmailRegex(EmailBox.Text))
                 {

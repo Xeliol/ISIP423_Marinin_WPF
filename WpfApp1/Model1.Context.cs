@@ -29,6 +29,7 @@ namespace WpfApp1
         public virtual DbSet<Cart> Cart { get; set; }
         public virtual DbSet<Manufacturers> Manufacturers { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<PaymentTypes> PaymentTypes { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<ProductsCart> ProductsCart { get; set; }
         public virtual DbSet<ProductsOrder> ProductsOrder { get; set; }

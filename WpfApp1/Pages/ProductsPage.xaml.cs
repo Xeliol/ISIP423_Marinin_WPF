@@ -64,7 +64,7 @@ namespace WpfApp1.Pages
                         Core.Context.SaveChanges();
                     }
 
-                    Core.Context.ProductsCart.Add(new ProductsCart { ID = Core.Context.ProductsCart.Count() + 1, CartID = Core.Context.Cart.Where(c => c.UserID == user.ID).First().CartID, ProductID = dataItem.ProductID });
+                    Core.Context.ProductsCart.Add(new ProductsCart { CartID = Core.Context.Cart.Where(c => c.UserID == user.ID).First().CartID, ProductID = dataItem.ProductID });
 
                     Core.Context.SaveChanges();
                 }

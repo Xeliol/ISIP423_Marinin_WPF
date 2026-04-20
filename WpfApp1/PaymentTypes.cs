@@ -12,23 +12,18 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class Orders
+    public partial class PaymentTypes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Orders()
+        public PaymentTypes()
         {
-            this.ProductsOrder = new HashSet<ProductsOrder>();
+            this.Orders = new HashSet<Orders>();
         }
     
-        public int OrderID { get; set; }
-        public int UserID { get; set; }
-        public bool Delivered { get; set; }
-        public System.DateTime PreferedDate { get; set; }
-        public int PaymentType { get; set; }
+        public int TypeID { get; set; }
+        public string Name { get; set; }
     
-        public virtual PaymentTypes PaymentTypes { get; set; }
-        public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductsOrder> ProductsOrder { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }

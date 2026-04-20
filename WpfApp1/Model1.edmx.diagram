@@ -4,25 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2a5d533f785b46f58cb270ddd33fd633" Name="Diagram1">
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Appointments" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Cart" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Manufacturers" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Orders" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Products" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.ProductsCart" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.ProductsOrder" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.ProductTypes" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Services" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.ServiceTypes" Width="1.5" PointX="6" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Users" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Marinin_CosmeticsModel.UserType" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+      <Diagram DiagramId="140bd304d0f442a5ac24fd79385d4e23" Name="Diagram1">
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Appointments" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Cart" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Manufacturers" Width="1.5" PointX="6" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Orders" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.PaymentTypes" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Products" Width="1.5" PointX="8.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.ProductsCart" Width="1.5" PointX="7.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.ProductsOrder" Width="1.5" PointX="10.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.ProductTypes" Width="1.5" PointX="6" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Services" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.ServiceTypes" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.Users" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marinin_CosmeticsModel.UserType" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
         <AssociationConnector Association="Marinin_CosmeticsModel.FK_Appointments_Services" ManuallyRouted="false" />
         <AssociationConnector Association="Marinin_CosmeticsModel.FK_Appointments_Users" ManuallyRouted="false" />
         <AssociationConnector Association="Marinin_CosmeticsModel.FK_Cart_Users" ManuallyRouted="false" />
         <AssociationConnector Association="Marinin_CosmeticsModel.FK_ProductsCart_Cart" ManuallyRouted="false" />
         <AssociationConnector Association="Marinin_CosmeticsModel.FK_Products_Manufacturers" ManuallyRouted="false" />
+        <AssociationConnector Association="Marinin_CosmeticsModel.FK_Orders_PaymentTypes" ManuallyRouted="false" />
         <AssociationConnector Association="Marinin_CosmeticsModel.FK_Orders_Users" ManuallyRouted="false" />
         <AssociationConnector Association="Marinin_CosmeticsModel.FK_ProductsOrder_Orders" ManuallyRouted="false" />
         <AssociationConnector Association="Marinin_CosmeticsModel.FK_Products_ProductTypes" ManuallyRouted="false" />

@@ -61,13 +61,23 @@
                 <ListBox x:Name="ProductListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" Background="FloralWhite">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Height="100" Width="400">
-                                <TextBlock FontSize="18" FontWeight="Bold" Text="Ticket" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Session.TheaterID, StringFormat=Theater №{0}}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Seat, StringFormat=Seat: №{0}}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Session.Theaters.Rating, StringFormat=Rating: {0}}" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </DataTemplate>
+                        <StackPanel Height="150" Width="400">
+                            <TextBlock FontSize="18" FontWeight="Bold" Text="Order" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding PreferedDate, StringFormat={}{0:dd.MM.yyyy}}" HorizontalAlignment="Center"/>
+                            <ListBox ItemsSource="{Binding ProductsOrder}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="100" Background="FloralWhite">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Products.Name}" HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
+                        </StackPanel>
+                    </DataTemplate>
                     </ListBox.ItemTemplate>
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -75,6 +85,6 @@
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
                 </ListBox>
-            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

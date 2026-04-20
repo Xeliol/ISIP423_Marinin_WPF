@@ -30,6 +30,8 @@ namespace WpfApp1.Pages
             this.DataContext = user;
 
             SessionListBox.ItemsSource = Core.Context.Appointments.Where(t => t.UserID == user.UserID).ToList();
+
+            ProductListBox.ItemsSource = Core.Context.Orders.Where(o => o.UserID == user.UserID).ToList();
         }
 
         private void LogOutButton_Click(object sender, RoutedEventArgs e)

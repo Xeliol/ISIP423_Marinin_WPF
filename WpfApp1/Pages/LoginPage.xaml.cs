@@ -39,7 +39,9 @@ namespace WpfApp1.Pages
                 cur.Type = log_user.First().TypeID;
 
                 MessageBox.Show("Logged in!");
-                NavigationService.GoBack();
+                if (cur.Type == 4) NavigationService.Navigate(new AdminPage());
+                else if (cur.Type == 1 || cur.Type == 2) NavigationService.GoBack();
+                else if (cur.Type == 3) NavigationService.Navigate(new ManagerPage());
             }
         }
 

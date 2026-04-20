@@ -78,6 +78,8 @@ namespace WpfApp1.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //ORDER PAGE
+            Window1 win = new Window1(cart);
+            win.Show();
         }
     }
 }

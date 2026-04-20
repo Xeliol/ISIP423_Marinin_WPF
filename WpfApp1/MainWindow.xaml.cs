@@ -46,7 +46,11 @@ namespace WpfApp1
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
             Page currentPage = MainFrame.Content as Page;
-            if (MainFrame.NavigationService.CanGoBack) MainFrame.NavigationService.Navigate(new Pages.StartPage());
+            if (AccountButton.Content == "Log In") MainFrame.NavigationService.Navigate(new StartPage());
+            else if (AccountButton.Content == "My Account") MainFrame.NavigationService.Navigate(new StartPage());
+            else if (AccountButton.Content == "My Profile") MainFrame.NavigationService.Navigate(new StartPage());
+            else if (AccountButton.Content == "Manage") MainFrame.NavigationService.Navigate(new ManagerPage());
+            else if (AccountButton.Content == "Admin") MainFrame.NavigationService.Navigate(new AdminPage());
         }
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)
@@ -54,6 +58,8 @@ namespace WpfApp1
             if (AccountButton.Content == "Log In") MainFrame.NavigationService.Navigate(new LoginPage());
             else if (AccountButton.Content == "My Account") MainFrame.NavigationService.Navigate(new AccountPage());
             else if (AccountButton.Content == "My Profile") MainFrame.NavigationService.Navigate(new MasterAccountPage());
+            else if (AccountButton.Content == "Manage") MainFrame.NavigationService.Navigate(new ManagerPage());
+            else if (AccountButton.Content == "Admin") MainFrame.NavigationService.Navigate(new AdminPage());
         }
 
         private void MasterAccountButton_Click(object sender, RoutedEventArgs e)
@@ -75,6 +81,12 @@ namespace WpfApp1
                     break;
                 case 2:
                     AccountButton.Content = "My Profile";
+                    break;
+                case 3:
+                    AccountButton.Content = "Manage";
+                    break;
+                case 4:
+                    AccountButton.Content = "Admin";
                     break;
             }
         }
